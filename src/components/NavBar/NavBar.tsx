@@ -13,11 +13,13 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Button, useMediaQuery } from '@mui/material';
+import { useRouter } from 'next/router';
 
 export default function MenuAppBar() {
   const [auth, setAuth] = React.useState(true);
   const isNotMobile = useMediaQuery('(min-width:450px)');
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const router = useRouter();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAuth(event.target.checked);
@@ -35,15 +37,15 @@ export default function MenuAppBar() {
     <>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
+          {auth && <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            {!isNotMobile && <MenuIcon />}
-          </IconButton>
+            <MenuIcon/>
+          </IconButton>}
           <Box flexGrow={1} sx={{display: 'flex', alignItems: 'center'}}>
             <AdbIcon />
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -84,12 +86,13 @@ export default function MenuAppBar() {
             </div>
           ) : (
             <>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" onClick={()=> router.push('/login')}>Login</Button>
           </>
           )}
           </Box>
         </Toolbar>
       </AppBar>
+      {/* Test Switch */}
       <FormGroup>
         <FormControlLabel
           control={

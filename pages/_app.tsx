@@ -1,15 +1,14 @@
 import { AppProps } from 'next/app';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ReduxProvider } from '@/redux/provider';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (<>
-  <style jsx global>{`
-        body {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-      `}</style>
-  <Component {...pageProps} />
+  return (
+  <>
+      <ReduxProvider>
+        <CssBaseline/>
+        <Component {...pageProps} />
+      </ReduxProvider>
   </>)
 }
 
