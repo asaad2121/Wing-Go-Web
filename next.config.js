@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
-const dotenv = require('dotenv');
+require('dotenv').config();
 const webpack = require('webpack');
-dotenv.config();
 
 const nextConfig = {
     webpack: (config, { isServer, buildId, dev }) => {
@@ -17,11 +16,7 @@ const nextConfig = {
         }, {});
 
         // Allows you to create global constants which can be configured at compile time, which in our case is our environment variables
-        config.plugins.push(new webpack.DefinePlugin(env));
-
-        // Warning =>
-        // DefinePlugin
-        // Conflicting values for 'process.env.NEXT_RUNTIME'
+        config.plugins.push(new webpack.DefinePlugin(JSON.stringify(env)));
 
         // Required to prevent "React is not defined" error
         config.plugins.push(new webpack.ProvidePlugin({
