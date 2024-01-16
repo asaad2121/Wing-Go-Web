@@ -1,31 +1,19 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import Switch from '@mui/material/Switch';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import AdbIcon from '@mui/icons-material/Adb';
-import { Button, useMediaQuery } from '@mui/material';
+import React, { useState, ChangeEvent, MouseEvent} from 'react';
+import { Adb as AdbIcon, AccountCircle, Menu as MenuIcon} from '@mui/icons-material';
+import { Button, Menu, MenuItem, Switch, FormGroup, FormControlLabel, IconButton, Typography, Toolbar, Box, AppBar } from '@mui/material';
 import { useRouter } from 'next/router';
 
-export default function MenuAppBar() {
-  const [auth, setAuth] = React.useState(true);
-  const isNotMobile = useMediaQuery('(min-width:450px)');
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+function NavBar() {
+  const [auth, setAuth] = useState(true);
+  // const isNotMobile = useMediaQuery('(min-width:450px)');
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const router = useRouter();
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setAuth(event.target.checked);
   };
 
-  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -107,4 +95,6 @@ export default function MenuAppBar() {
       </FormGroup>
     </>
   );
-}
+};
+
+export default NavBar;
