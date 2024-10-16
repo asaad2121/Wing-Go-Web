@@ -1,25 +1,16 @@
-import {
-    Box,
-    Button,
-    FormControl,
-    FormHelperText,
-    InputLabel,
-    OutlinedInput,
-} from '@mui/material';
+import { Box, FormControl, FormHelperText, InputLabel, OutlinedInput } from '@mui/material';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import classes from './FormFields.module.scss';
 
 type FormFieldsProps = {
     formFields: object | any;
     onSubmit: Function | any;
     onError: Function | any;
+    submitButton?: Function | any;
 };
 
-const FormFields: React.FC<FormFieldsProps> = ({
-    formFields,
-    onSubmit,
-    onError,
-}) => {
+const FormFields: React.FC<FormFieldsProps> = ({ formFields, onSubmit, onError, submitButton }) => {
     const {
         handleSubmit,
         control,
@@ -29,12 +20,7 @@ const FormFields: React.FC<FormFieldsProps> = ({
 
     return (
         <form action="#" onSubmit={handleSubmit(onSubmit, onError)}>
-            <Box
-                display={'flex'}
-                flexDirection={'column'}
-                justifyContent={'center'}
-                alignItems={'center'}
-            >
+            <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
                 {formFields.map((field: any, i: number) => (
                     <Controller
                         key={i}
@@ -50,12 +36,8 @@ const FormFields: React.FC<FormFieldsProps> = ({
                         render={({ field: { onChange, value } }) => {
                             return (
                                 <Box mb={2} key={i}>
-                                    <FormControl
-                                        sx={{ m: 1, width: '25ch' }}
-                                        variant="outlined"
-                                        key={i}
-                                    >
-                                        <InputLabel htmlFor={field.name}>
+                                    <FormControl className={classes['wg-formFields-formControl']} key={i}>
+                                        <InputLabel htmlFor={field.name} className={classes['wg-formFields-label']}>
                                             {field.label}
                                         </InputLabel>
                                         <OutlinedInput
@@ -63,23 +45,21 @@ const FormFields: React.FC<FormFieldsProps> = ({
                                             id={field.name}
                                             type={field.type}
                                             value={value}
-                                            error={Boolean(errors[field.name])}
+                                            error={Boolean(errors[field?.name])}
+                                            className={classes['wg-formFields-inputField']}
                                             fullWidth
                                             required
                                             onChange={(e) => {
-                                                if (trigger)
-                                                    trigger(field.name);
+                                                if (trigger) trigger(field.name);
                                                 onChange(e.target.value);
                                             }}
                                             endAdornment={field.endAdornment}
                                             label={field.label}
                                         />
                                     </FormControl>
-                                    {errors[field.name] && (
-                                        <FormHelperText>
-                                            {errors[
-                                                field.name
-                                            ]?.message?.toString()}
+                                    {errors[field?.name] && (
+                                        <FormHelperText className={classes['wg-formFields-helperText']}>
+                                            {errors[field?.name]?.message?.toString()}
                                         </FormHelperText>
                                     )}
                                 </Box>
@@ -87,15 +67,7 @@ const FormFields: React.FC<FormFieldsProps> = ({
                         }}
                     />
                 ))}
-                <Box mt={2}>
-                    <Button
-                        variant="outlined"
-                        type="submit"
-                        disabled={Boolean(errors.length)}
-                    >
-                        Submit
-                    </Button>
-                </Box>
+                {submitButton(errors)}
             </Box>
         </form>
     );

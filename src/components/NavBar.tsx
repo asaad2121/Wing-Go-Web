@@ -1,9 +1,5 @@
 import React, { useState, ChangeEvent, MouseEvent } from 'react';
-import {
-    Adb as AdbIcon,
-    AccountCircle,
-    Menu as MenuIcon,
-} from '@mui/icons-material';
+import { Adb as AdbIcon, AccountCircle, Menu as MenuIcon } from '@mui/icons-material';
 import {
     Button,
     Menu,
@@ -42,26 +38,13 @@ function NavBar() {
             <AppBar position="static">
                 <Toolbar>
                     {auth && (
-                        <IconButton
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                            sx={{ mr: 2 }}
-                        >
+                        <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
                             <MenuIcon />
                         </IconButton>
                     )}
-                    <Box
-                        flexGrow={1}
-                        sx={{ display: 'flex', alignItems: 'center' }}
-                    >
+                    <Box flexGrow={1} sx={{ display: 'flex', alignItems: 'center' }}>
                         <AdbIcon />
-                        <Typography
-                            variant="h6"
-                            component="div"
-                            sx={{ flexGrow: 1 }}
-                        >
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             WingGo
                         </Typography>
                     </Box>
@@ -93,20 +76,13 @@ function NavBar() {
                                     open={Boolean(anchorEl)}
                                     onClose={handleClose}
                                 >
-                                    <MenuItem onClick={handleClose}>
-                                        Profile
-                                    </MenuItem>
-                                    <MenuItem onClick={handleClose}>
-                                        My account
-                                    </MenuItem>
+                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                    <MenuItem onClick={handleClose}>My account</MenuItem>
                                 </Menu>
                             </div>
                         ) : (
                             <>
-                                <Button
-                                    color="inherit"
-                                    onClick={() => router.push('/login')}
-                                >
+                                <Button color="inherit" onClick={() => router.push('/login')}>
                                     Login
                                 </Button>
                             </>
@@ -117,13 +93,7 @@ function NavBar() {
             {/* Test Switch */}
             <FormGroup>
                 <FormControlLabel
-                    control={
-                        <Switch
-                            checked={auth}
-                            onChange={handleChange}
-                            aria-label="login switch"
-                        />
-                    }
+                    control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
                     label={auth ? 'Logout' : 'Login'}
                 />
             </FormGroup>

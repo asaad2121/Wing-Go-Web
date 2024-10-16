@@ -1,0 +1,27 @@
+.wg-formFields-formControl {
+    width: 300px;
+}
+
+.wg-formFields-label {
+    font-size: 16px;
+    color: #163300 !important;
+    font-weight: bold;
+    background-color: #9fe870 !important;
+    border-radius: 12px;
+    padding: 0 8px;
+    // &:global(.Mui-focused) {}
+}
+
+.wg-formFields-inputField {
+    background-color: #9fe870;
+    border-radius: 10px;
+    fieldset {
+        border: 1px solid #9fe870 !important;
+        border-radius: 10px;
+    }
+}
+
+.wg-formFields-helperText {
+    font-size: 12px;
+    color: #9fe870;
+}

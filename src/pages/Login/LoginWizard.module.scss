@@ -1,0 +1,20 @@
+.wg-login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 100vh;
+    background-color: #163300;
+}
+
+.wg-login-text {
+    font-size: 32px;
+    color: #9fe870;
+    font-weight: bold;
+}
+
+.wg-login-submitForm {
+    border: 1px solid #9fe870;
+    color: #9fe870;
+}

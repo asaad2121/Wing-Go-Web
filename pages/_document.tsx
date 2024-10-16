@@ -5,7 +5,14 @@ class MyDocument extends Document {
     render() {
         return (
             <Html lang="en">
-                <Head>{/* Your custom head elements go here */}</Head>
+                <Head>
+                    <link rel="preconnect" href="https://fonts.googleapis.com" />
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap"
+                        rel="stylesheet"
+                    />
+                </Head>
                 <body>
                     <Main />
                     <NextScript />
