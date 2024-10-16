@@ -1,0 +1,11 @@
+.eslintrc.json
+tsconfig.json
+node_modules
+.next
+out
+public
+
+# Ignore all Devops files:
+# devops
+# Jenkinsfile
+# **/*.yaml

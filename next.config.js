@@ -9,7 +9,7 @@ const nextConfig = {
             config.resolve.fallback.fs = false;
         }
         // Returns environment variables as an object
-        
+
         const env = Object.keys(process.env).reduce((acc, curr) => {
             acc[`process.env.${curr}`] = JSON.stringify(process.env[curr]);
             return acc;
@@ -19,12 +19,14 @@ const nextConfig = {
         config.plugins.push(new webpack.DefinePlugin(JSON.stringify(env)));
 
         // Required to prevent "React is not defined" error
-        config.plugins.push(new webpack.ProvidePlugin({
-            React: "react",
-        }))
+        config.plugins.push(
+            new webpack.ProvidePlugin({
+                React: 'react',
+            })
+        );
 
         return config;
     },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

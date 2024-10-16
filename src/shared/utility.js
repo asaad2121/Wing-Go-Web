@@ -7,5 +7,5 @@
  */
 export const updateObject = (actualState, updatedValues) => ({
     ...actualState,
-    ...updatedValues
-  });
+    ...updatedValues,
+});
