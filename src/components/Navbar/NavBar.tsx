@@ -1,29 +1,15 @@
-import React, { useState, ChangeEvent, MouseEvent } from 'react';
+import React, { useState, MouseEvent } from 'react';
 import { Adb as AdbIcon, AccountCircle, Menu as MenuIcon } from '@mui/icons-material';
-import {
-    Button,
-    Menu,
-    MenuItem,
-    Switch,
-    FormGroup,
-    FormControlLabel,
-    IconButton,
-    Typography,
-    Toolbar,
-    Box,
-    AppBar,
-} from '@mui/material';
+import { Button, Menu, MenuItem, IconButton, Typography, Toolbar, Box, AppBar } from '@mui/material';
 import { useRouter } from 'next/router';
+import classes from './NavBar.module.scss';
+import { useStoreSelector } from '@/redux/store';
 
 function NavBar() {
-    const [auth, setAuth] = useState(true);
+    const { isAuthenticated } = useStoreSelector((state) => state.authReducer.value);
     // const isNotMobile = useMediaQuery('(min-width:450px)');
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const router = useRouter();
-
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setAuth(event.target.checked);
-    };
 
     const handleMenu = (event: MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -35,21 +21,21 @@ function NavBar() {
 
     return (
         <>
-            <AppBar position="static">
+            <AppBar position="static" className={classes['wg-navbar-root']}>
                 <Toolbar>
-                    {auth && (
+                    {isAuthenticated && (
                         <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
                             <MenuIcon />
                         </IconButton>
                     )}
-                    <Box flexGrow={1} sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Box flexGrow={1} display={'flex'} alignItems={'center'}>
                         <AdbIcon />
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             WingGo
                         </Typography>
                     </Box>
                     <Box>
-                        {auth ? (
+                        {isAuthenticated ? (
                             <div>
                                 <IconButton
                                     size="large"
@@ -90,13 +76,6 @@ function NavBar() {
                     </Box>
                 </Toolbar>
             </AppBar>
-            {/* Test Switch */}
-            <FormGroup>
-                <FormControlLabel
-                    control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
-                    label={auth ? 'Logout' : 'Login'}
-                />
-            </FormGroup>
         </>
     );
 }

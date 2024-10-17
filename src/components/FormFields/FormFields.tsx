@@ -44,14 +44,14 @@ const FormFields: React.FC<FormFieldsProps> = ({ formFields, onSubmit, onError, 
                                             key={i}
                                             id={field.name}
                                             type={field.type}
-                                            value={value}
+                                            value={value || field.value}
                                             error={Boolean(errors[field?.name])}
                                             className={classes['wg-formFields-inputField']}
                                             fullWidth
                                             required
                                             onChange={(e) => {
-                                                if (trigger) trigger(field.name);
                                                 onChange(e.target.value);
+                                                if (trigger) trigger(field.name);
                                             }}
                                             endAdornment={field.endAdornment}
                                             label={field.label}

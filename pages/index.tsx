@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../src/components/NavBar';
+import NavBar from '../src/components/Navbar/NavBar';
 
 const IndexPage: React.FC = () => {
     return (

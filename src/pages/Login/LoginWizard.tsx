@@ -6,6 +6,7 @@ import { logIn } from '@/redux/features/auth-slice';
 import { useStoreSelector, useAppDispatch } from '@/redux/store';
 import FormFields from '@/components/FormFields/FormFields';
 import classes from './LoginWizard.module.scss';
+import NavBar from '@/components/Navbar/NavBar';
 
 const isProd = process.env.REACT_APP_ENV === 'prod';
 
@@ -31,6 +32,7 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
             type: isProd ? 'email' : 'text',
             regex: isProd ? `^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$` : '',
             regex_message: 'Invalid email',
+            value: '',
             endAdornment: null,
         },
         {
@@ -39,6 +41,7 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
             type: showPassword ? 'text' : 'password',
             regex: isProd ? `^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{7,}$` : '',
             regex_message: 'Invalid password',
+            value: '',
             endAdornment: (
                 <InputAdornment position="end">
                     <IconButton
@@ -72,7 +75,7 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
                     className={classes['wg-login-submitForm']}
                     disabled={Boolean(errors?.length)}
                 >
-                    Submit
+                    Login
                 </Button>
             </Box>
         );
@@ -80,6 +83,7 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
 
     return (
         <>
+            <NavBar />
             <Box className={classes['wg-login-container']}>
                 {/* Showing User State, HIDE LATER */}
                 {!isProd && (

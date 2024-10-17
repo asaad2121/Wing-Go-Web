@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
 require('dotenv').config();
 const webpack = require('webpack');
+const path = require('path');
 
 const nextConfig = {
+    sassOptions: {
+        includePaths: [path.join(__dirname, 'styles')],
+    },
     webpack: (config, { isServer, buildId, dev }) => {
         // Fixes npm packages that depend on `fs` module
         if (!isServer) {
