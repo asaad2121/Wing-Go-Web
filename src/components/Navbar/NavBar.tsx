@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from 'react';
+import React, { useState, MouseEvent, useEffect } from 'react';
 import { Adb as AdbIcon, AccountCircle, Menu as MenuIcon } from '@mui/icons-material';
 import { Button, Menu, MenuItem, IconButton, Typography, Toolbar, Box, AppBar } from '@mui/material';
 import { useRouter } from 'next/router';
@@ -6,10 +6,14 @@ import classes from './NavBar.module.scss';
 import { useStoreSelector } from '@/redux/store';
 
 function NavBar() {
-    const { isAuthenticated } = useStoreSelector((state) => state.authReducer.value);
-    // const isNotMobile = useMediaQuery('(min-width:450px)');
+    const { isAuthenticated } = useStoreSelector((state) => state.auth.value);
+    const [auth, setAuth] = useState(false);
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const router = useRouter();
+
+    useEffect(() => {
+        setAuth(isAuthenticated);
+    },[isAuthenticated]);
 
     const handleMenu = (event: MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -23,7 +27,7 @@ function NavBar() {
         <>
             <AppBar position="static" className={classes['wg-navbar-root']}>
                 <Toolbar>
-                    {isAuthenticated && (
+                    {auth && (
                         <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
                             <MenuIcon />
                         </IconButton>
@@ -35,7 +39,7 @@ function NavBar() {
                         </Typography>
                     </Box>
                     <Box>
-                        {isAuthenticated ? (
+                        {auth ? (
                             <div>
                                 <IconButton
                                     size="large"
@@ -61,6 +65,12 @@ function NavBar() {
                                     }}
                                     open={Boolean(anchorEl)}
                                     onClose={handleClose}
+                                    sx={{
+                                        '& .MuiPaper-root': {
+                                            backgroundColor: '#9fe870',
+                                            color: '#163300'
+                                        },
+                                    }}
                                 >
                                     <MenuItem onClick={handleClose}>Profile</MenuItem>
                                     <MenuItem onClick={handleClose}>My account</MenuItem>
@@ -70,6 +80,9 @@ function NavBar() {
                             <>
                                 <Button color="inherit" onClick={() => router.push('/login')}>
                                     Login
+                                </Button>
+                                <Button color="inherit" onClick={() => router.push('/signup')}>
+                                    Signup
                                 </Button>
                             </>
                         )}

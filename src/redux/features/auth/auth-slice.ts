@@ -15,7 +15,6 @@ const initialState = {
     value: {
         isAuthenticated: false,
         user_email: '',
-        isTest: false,
     } as AuthState,
 } as InitialState;
 
@@ -26,7 +25,7 @@ export const auth = createSlice({
         logOut: () => {
             return initialState;
         },
-        logIn: (state, action: PayloadAction<{ user_email: string; first_name: string; last_name: string }>) => {
+        updateUser: (state, action: PayloadAction<{ user_email: string; first_name: string; last_name: string }>) => {
             const { user_email, first_name, last_name } = action.payload;
             return {
                 value: {
@@ -41,5 +40,5 @@ export const auth = createSlice({
     },
 });
 
-export const { logOut, logIn } = auth.actions;
+export const { logOut, updateUser } = auth.actions;
 export default auth.reducer;

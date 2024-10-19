@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app';
 import CssBaseline from '@mui/material/CssBaseline';
-import { ReduxProvider } from '@/redux/provider';
+import { store } from '@/redux/store';
+import { Provider } from 'react-redux';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../src/styles/theme';
@@ -25,12 +26,12 @@ function MyApp({ Component, pageProps }: AppProps) {
                     font-family: 'Afacad Flux', sans-serif;
                 }
             `}</style>
-            <ReduxProvider>
+            <Provider store={store}>
                 <CssBaseline />
                 <ApolloProvider client={client}>
                     <Component {...pageProps} />
                 </ApolloProvider>
-            </ReduxProvider>
+            </Provider>
         </ThemeProvider>
     );
 }
