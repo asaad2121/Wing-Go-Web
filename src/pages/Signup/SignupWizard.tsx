@@ -5,15 +5,15 @@ import { useState } from 'react';
 import { updateUser } from '@/redux/features/auth/auth-slice';
 import { useAppDispatch } from '@/redux/store';
 import FormFields from '@/components/FormFields/FormFields';
-import classes from './LoginWizard.module.scss';
+import classes from './SignupWizard.module.scss';
 import NavBar from '@/components/Navbar/NavBar';
-import { userLogin } from '@/redux/features/auth/auth-queries';
+import { userSignup } from '@/redux/features/auth/auth-queries';
 
-interface LoginProps {
+interface SignupProps {
     isMobileServer: boolean;
 }
 
-const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
+const Signup: React.FC<SignupProps> = ({ isMobileServer }) => {
     const [showPassword, setShowPassword] = useState(false);
     const dispatch = useAppDispatch();
 
@@ -24,6 +24,24 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
     };
 
     const formFields = [
+        {
+            name: 'first_name',
+            label: 'First Name',
+            type: 'text',
+            regex: `^[A-Za-z ]{1,64}$`,
+            regex_message: 'Incorrect format',
+            value: '',
+            endAdornment: null,
+        },
+        {
+            name: 'last_name',
+            label: 'Last Name',
+            type: 'text',
+            regex: `^[A-Za-z ]{1,64}$`,
+            regex_message: 'Incorrect format',
+            value: '',
+            endAdornment: null,
+        },
         {
             name: 'user_email',
             label: 'Email Address',
@@ -56,16 +74,22 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
     ];
 
     const submitData = async (formData: any, _: any) => {
-        const { success, data, error } = await userLogin({
+        const { success, error } = await userSignup({
             email: formData.user_email,
             password: formData.user_password,
+            firstName: formData.first_name,
+            lastName: formData.last_name,
         });
 
         if (!success || error) {
             console.error(error);
             return;
         }
-        const userData = { user_email: data.email, first_name: data.firstName, last_name: data.lastName };
+        const userData = {
+            user_email: formData.user_email,
+            first_name: formData.first_name,
+            last_name: formData.last_name,
+        };
         dispatch(updateUser(userData));
     };
 
@@ -79,10 +103,10 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
                 <Button
                     variant="outlined"
                     type="submit"
-                    className={classes['wg-login-submitForm']}
+                    className={classes['wg-signup-submitForm']}
                     disabled={Boolean(errors?.length)}
                 >
-                    Login
+                    Signup
                 </Button>
             </Box>
         );
@@ -91,9 +115,9 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
     return (
         <>
             <NavBar />
-            <Box className={classes['wg-login-container']}>
-                <Typography variant="h2" className={classes['wg-login-text']}>
-                    Enter User Credentials
+            <Box className={classes['wg-signup-container']}>
+                <Typography variant="h2" className={classes['wg-signup-text']}>
+                    Sign Up to WingGo
                 </Typography>
                 <FormFields formFields={formFields} onSubmit={submitData} onError={onErrors} submitButton={submit} />
             </Box>
@@ -101,4 +125,4 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
     );
 };
 
-export default Login;
+export default Signup;

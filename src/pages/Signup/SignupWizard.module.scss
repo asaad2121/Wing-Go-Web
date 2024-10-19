@@ -1,0 +1,27 @@
+.wg-signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: #163300;
+}
+
+.wg-signup-text {
+    font-size: 32px;
+    color: #9fe870;
+    font-weight: bold;
+}
+
+.wg-signup-submitForm {
+    border: 1px solid #9fe870;
+    color: #9fe870;
+    &:hover {
+        background-color: #9fe870;
+        border: 1px solid #163300 !important;
+        color: #163300;
+    }
+}
