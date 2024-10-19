@@ -12,12 +12,20 @@ const nextConfig = {
         if (!isServer) {
             config.resolve.fallback.fs = false;
         }
-        // Returns environment variables as an object
+        /**
+         * Returns environment variables as an object
+         */
+        const env = Object.keys(process.env)
+            .filter((key) => !key.includes('NEXT_'))
+            .reduce((acc, curr) => {
+                acc[`process.env.${curr}`] = JSON.stringify(process.env[curr]);
+                return acc;
+            }, {});
 
-        const env = Object.keys(process.env).reduce((acc, curr) => {
-            acc[`process.env.${curr}`] = JSON.stringify(process.env[curr]);
-            return acc;
-        }, {});
+        /** Allows you to create global constants which can be configured
+         * at compile time, which in our case is our environment variables
+         */
+        config.plugins.push(new webpack.DefinePlugin(env));
 
         // Allows you to create global constants which can be configured at compile time, which in our case is our environment variables
         config.plugins.push(new webpack.DefinePlugin(JSON.stringify(env)));
