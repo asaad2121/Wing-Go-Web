@@ -2,11 +2,12 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Box, Button, IconButton, InputAdornment, Typography } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
-import { logIn } from '@/redux/features/auth-slice';
+import { logIn } from '@/redux/features/auth/auth-slice';
 import { useStoreSelector, useAppDispatch } from '@/redux/store';
 import FormFields from '@/components/FormFields/FormFields';
 import classes from './LoginWizard.module.scss';
 import NavBar from '@/components/Navbar/NavBar';
+import { userLogin } from '@/redux/features/auth/auth-queries';
 
 const isProd = process.env.REACT_APP_ENV === 'prod';
 
@@ -17,7 +18,7 @@ interface LoginProps {
 const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
     const [showPassword, setShowPassword] = useState(false);
     const dispatch = useAppDispatch();
-    const { user_email, user_password } = useStoreSelector((state) => state.authReducer.value);
+    const { user_email, user_password } = useStoreSelector((state: any) => state.authReducer.value);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -57,13 +58,23 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
         },
     ];
 
-    const submitData = (formData: any, event: any) => {
-        console.log('SUBMITTED', formData);
-        dispatch(logIn(formData));
+    const submitData = async (formData: any, _: any) => {
+        const { success, data, error } = await userLogin({
+            email: formData.user_email,
+            password: formData.user_password,
+        });
+
+        if (!success || error) {
+            console.error(error);
+            return;
+        }
+        const userData = { user_email: data.email, first_name: data.firstName, last_name: data.lastName };
+        console.log(userData);
+        dispatch(logIn(userData));
     };
 
     const onErrors = (formData: any, event: any) => {
-        console.log('ERROR', formData);
+        console.error(formData);
     };
 
     const submit = (errors: any[]) => {

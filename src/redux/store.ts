@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import authReducer from './features/auth-slice';
+import authReducer from './features/auth/auth-slice';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 const isProd = process.env.REACT_APP_ENV === 'prod';
