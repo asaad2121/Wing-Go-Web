@@ -1,0 +1,12 @@
+.wg-dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: #163300;
+    color: #9fe870;
+}

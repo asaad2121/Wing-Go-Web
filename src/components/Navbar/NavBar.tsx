@@ -3,10 +3,13 @@ import { Adb as AdbIcon, AccountCircle, Menu as MenuIcon } from '@mui/icons-mate
 import { Button, Menu, MenuItem, IconButton, Typography, Toolbar, Box, AppBar } from '@mui/material';
 import { useRouter } from 'next/router';
 import classes from './NavBar.module.scss';
-import { useStoreSelector } from '@/redux/store';
+import { useAppDispatch, useStoreSelector } from '@/redux/store';
+import { logOut } from '@/redux/features/auth/auth-slice';
+import { snackbar } from '../Snackbar/Snackbar';
 
 function NavBar() {
     const { isAuthenticated } = useStoreSelector((state) => state.auth.value);
+    const dispatch = useAppDispatch();
     const [auth, setAuth] = useState(false);
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const router = useRouter();
@@ -21,6 +24,15 @@ function NavBar() {
 
     const handleClose = () => {
         setAnchorEl(null);
+    };
+
+    const handleRedirect = (page: string) => {
+        router.push(page);
+    };
+
+    const handleLogout = () => {
+        dispatch(logOut());
+        snackbar.info('Logged out successfully', 5000);
     };
 
     return (
@@ -72,8 +84,9 @@ function NavBar() {
                                         },
                                     }}
                                 >
-                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                    <MenuItem onClick={handleClose}>My account</MenuItem>
+                                    <MenuItem onClick={() => handleRedirect('/my-account')}>My account</MenuItem>
+                                    <MenuItem onClick={() => handleRedirect('/settings')}>Settings</MenuItem>
+                                    <MenuItem onClick={handleLogout}>Logout</MenuItem>
                                 </Menu>
                             </div>
                         ) : (

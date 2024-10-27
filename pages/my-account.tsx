@@ -1,10 +1,9 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
-import DashboardWizard from '@/pages/Dashboard/DashboardWizard';
 import { withAuthSync } from '@/settings/auth';
 
-const Dashboard = () => {
-    return <DashboardWizard />;
+const MyAccount = () => {
+    return <div>MyAccount</div>;
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
@@ -17,4 +16,4 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     };
 };
 
-export default withAuthSync(Dashboard);
+export default withAuthSync(MyAccount);
