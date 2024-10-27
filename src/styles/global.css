@@ -2,7 +2,7 @@
 
 html,
 body {
-    font-family: 'Afacad Flux', sans-serif; /* Ensure this matches the font-family */
+    font-family: 'Afacad Flux', sans-serif !important; /* Ensure this matches the font-family */
     margin: 0;
     padding: 0;
     height: 100%;

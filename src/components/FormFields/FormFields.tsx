@@ -19,11 +19,11 @@ const FormFields: React.FC<FormFieldsProps> = ({ formFields, onSubmit, onError, 
     } = useForm();
 
     return (
-        <form action="#" onSubmit={handleSubmit(onSubmit, onError)}>
-            <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
+        <form onSubmit={handleSubmit(onSubmit, onError)}>
+            <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
                 {formFields.map((field: any, i: number) => (
                     <Controller
-                        key={i}
+                        key={field.id}
                         name={field.name}
                         control={control}
                         rules={{
@@ -33,38 +33,39 @@ const FormFields: React.FC<FormFieldsProps> = ({ formFields, onSubmit, onError, 
                                 message: field.regex_message,
                             },
                         }}
-                        render={({ field: { onChange, value } }) => {
-                            return (
-                                <Box mb={2} key={i}>
-                                    <FormControl className={classes['wg-formFields-formControl']} key={i}>
-                                        <InputLabel htmlFor={field.name} className={classes['wg-formFields-label']}>
-                                            {field.label}
-                                        </InputLabel>
-                                        <OutlinedInput
-                                            key={i}
-                                            id={field.name}
-                                            type={field.type}
-                                            value={value || field.value}
-                                            error={Boolean(errors[field?.name])}
-                                            className={classes['wg-formFields-inputField']}
-                                            fullWidth
-                                            required
-                                            onChange={(e) => {
-                                                onChange(e.target.value);
-                                                if (trigger) trigger(field.name);
-                                            }}
-                                            endAdornment={field.endAdornment}
-                                            label={field.label}
-                                        />
-                                    </FormControl>
-                                    {errors[field?.name] && (
-                                        <FormHelperText className={classes['wg-formFields-helperText']}>
-                                            {errors[field?.name]?.message?.toString()}
-                                        </FormHelperText>
-                                    )}
-                                </Box>
-                            );
-                        }}
+                        render={({ field: { onChange, value } }) => (
+                            <Box mb={2}>
+                                <FormControl className={classes['wg-formFields-formControl']} key={i}>
+                                    <InputLabel htmlFor={field.name} className={classes['wg-formFields-label']} shrink>
+                                        {field.label}
+                                    </InputLabel>
+                                    <OutlinedInput
+                                        id={field.id}
+                                        type={field.type}
+                                        value={value || field.value}
+                                        error={Boolean(errors[field?.name])}
+                                        className={classes['wg-formFields-inputField']}
+                                        autoComplete={field.autoComplete}
+                                        fullWidth
+                                        required
+                                        onChange={(e) => {
+                                            onChange(e.target.value);
+                                            if (trigger) trigger(field.name);
+                                        }}
+                                        onFocus={() => {
+                                            if (trigger) trigger(field.name);
+                                        }}
+                                        endAdornment={field.endAdornment}
+                                        label={field.label}
+                                    />
+                                </FormControl>
+                                {errors[field?.name] && (
+                                    <FormHelperText className={classes['wg-formFields-helperText']}>
+                                        {errors[field?.name]?.message?.toString()}
+                                    </FormHelperText>
+                                )}
+                            </Box>
+                        )}
                     />
                 ))}
                 {submitButton(errors)}
