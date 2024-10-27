@@ -13,7 +13,7 @@ function NavBar() {
 
     useEffect(() => {
         setAuth(isAuthenticated);
-    },[isAuthenticated]);
+    }, [isAuthenticated]);
 
     const handleMenu = (event: MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -68,7 +68,7 @@ function NavBar() {
                                     sx={{
                                         '& .MuiPaper-root': {
                                             backgroundColor: '#9fe870',
-                                            color: '#163300'
+                                            color: '#163300',
                                         },
                                     }}
                                 >

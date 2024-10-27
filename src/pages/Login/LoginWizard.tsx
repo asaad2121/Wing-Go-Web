@@ -8,6 +8,7 @@ import FormFields from '@/components/FormFields/FormFields';
 import classes from './LoginWizard.module.scss';
 import NavBar from '@/components/Navbar/NavBar';
 import { userLogin } from '@/redux/features/auth/auth-queries';
+import { snackbar } from '@/components/Snackbar/Snackbar';
 
 interface LoginProps {
     isMobileServer: boolean;
@@ -62,7 +63,7 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
         });
 
         if (!success || error) {
-            console.error(error);
+            snackbar.error(error, 5000);
             return;
         }
         const userData = { user_email: data.email, first_name: data.firstName, last_name: data.lastName };

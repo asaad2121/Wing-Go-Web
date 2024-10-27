@@ -1,0 +1,22 @@
+.wg-Alert-main {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 12px;
+    height: 56px;
+    width: 300px;
+}
+
+.wg-Alert-success {
+    background-color: #2f5711;
+}
+.wg-Alert-info {
+    background-color: #edc843;
+}
+.wg-Alert-warning {
+    background-color: #21231d;
+}
+.wg-Alert-error {
+    background-color: #a8200d;
+}

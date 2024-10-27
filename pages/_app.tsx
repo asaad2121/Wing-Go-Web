@@ -6,6 +6,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../src/styles/theme';
 import '../src/styles/global.css';
+import SnackBar from '@/components/Snackbar/Snackbar';
 
 const client = new ApolloClient({
     uri: 'http://localhost:8000/graphql',
@@ -32,6 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     <Component {...pageProps} />
                 </ApolloProvider>
             </Provider>
+            <SnackBar />
         </ThemeProvider>
     );
 }
