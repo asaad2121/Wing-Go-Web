@@ -1,3 +1,5 @@
+import Loader from '@/components/Loader/Loader';
+import { snackbar } from '@/components/Snackbar/Snackbar';
 import { logOut } from '@/redux/features/auth/auth-slice';
 import { store } from '@/redux/store';
 import { useRouter, withRouter } from 'next/router';
@@ -20,6 +22,7 @@ export const withAuthSync = (WrappedComponent: React.ComponentType<any>, customP
                 if ((props.router || {}).route) {
                     redirectTo = props.router.asPath;
                 }
+                snackbar.error('Session expired. Login again!', 2000);
                 store.dispatch(logOut());
                 Router.push('/login');
             } else {
@@ -39,7 +42,7 @@ export const withAuthSync = (WrappedComponent: React.ComponentType<any>, customP
             if (event.key === 'logout') Router.push('/login');
         };
 
-        // if (loading) return <div>Loading...</div>;
+        if (loading) return <Loader />;
         return <WrappedComponent {...props} />;
     };
 
