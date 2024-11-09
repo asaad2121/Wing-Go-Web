@@ -1,9 +1,10 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
 import { withAuthSync } from '@/settings/auth';
+import AccountDetails from '@/pages/My-Account/AccountDetails';
 
 const MyAccount = () => {
-    return <div>MyAccount</div>;
+    return <AccountDetails />;
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {

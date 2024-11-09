@@ -31,6 +31,7 @@ const Signup: React.FC<SignupProps> = ({ isMobileServer }) => {
             regex: `^[A-Za-z ]{1,64}$`,
             regex_message: 'Incorrect format',
             value: '',
+            required: true,
             endAdornment: null,
         },
         {
@@ -40,6 +41,7 @@ const Signup: React.FC<SignupProps> = ({ isMobileServer }) => {
             regex: `^[A-Za-z ]{1,64}$`,
             regex_message: 'Incorrect format',
             value: '',
+            required: true,
             endAdornment: null,
         },
         {
@@ -49,6 +51,7 @@ const Signup: React.FC<SignupProps> = ({ isMobileServer }) => {
             regex: `^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$`,
             regex_message: 'Invalid email',
             value: '',
+            required: true,
             endAdornment: null,
         },
         {
@@ -58,6 +61,7 @@ const Signup: React.FC<SignupProps> = ({ isMobileServer }) => {
             regex: `^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{7,}$`,
             regex_message: 'Invalid password',
             value: '',
+            required: true,
             endAdornment: (
                 <InputAdornment position="end">
                     <IconButton

@@ -35,6 +35,7 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
             regex_message: 'Invalid email',
             autoComplete: 'email',
             value: '',
+            required: true,
             endAdornment: null,
         },
         {
@@ -46,6 +47,7 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
             regex_message: 'Invalid password',
             autoComplete: 'current-password',
             value: '',
+            required: true,
             endAdornment: (
                 <InputAdornment position="end">
                     <IconButton

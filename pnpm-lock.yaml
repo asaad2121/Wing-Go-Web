@@ -38,6 +38,9 @@ dependencies:
     mini-css-extract-plugin:
         specifier: ^2.9.1
         version: 2.9.1(webpack@5.89.0)
+    mui-phone-number:
+        specifier: ^3.0.3
+        version: 3.0.3(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@mui/material@5.15.2)(clsx@1.2.1)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
     next:
         specifier: 13.5.4
         version: 13.5.4(react-dom@18.2.0)(react@18.2.0)(sass@1.79.5)
@@ -1944,6 +1947,14 @@ packages:
             }
         dev: false
 
+    /clsx@1.2.1:
+        resolution:
+            {
+                integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==,
+            }
+        engines: { node: '>=6' }
+        dev: false
+
     /clsx@2.0.0:
         resolution:
             {
@@ -2027,6 +2038,13 @@ packages:
             parse-json: 5.2.0
             path-type: 4.0.0
             yaml: 1.10.2
+        dev: false
+
+    /country-flag-icons@1.5.13:
+        resolution:
+            {
+                integrity: sha512-4JwHNqaKZ19doQoNcBjsoYA+I7NqCH/mC/6f5cBWvdKzcK5TMmzLpq3Z/syVHMHJuDGFwJ+rPpGizvrqJybJow==,
+            }
         dev: false
 
     /cross-spawn@7.0.3:
@@ -3594,6 +3612,13 @@ packages:
             }
         dev: true
 
+    /lodash@4.17.21:
+        resolution:
+            {
+                integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==,
+            }
+        dev: false
+
     /loose-envify@1.4.0:
         resolution:
             {
@@ -3696,6 +3721,31 @@ packages:
                 integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==,
             }
         dev: true
+
+    /mui-phone-number@3.0.3(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@mui/material@5.15.2)(clsx@1.2.1)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
+        resolution:
+            {
+                integrity: sha512-tP7HmJEK6ZJGSvsjsbQdKVNzUMwfM/entHL+hOKX/FFLfElsF7sBEuPMKgNNs4sOHeAFO4JCQnfE1w2l0CXksA==,
+            }
+        peerDependencies:
+            '@emotion/react': ^11.10.6
+            '@emotion/styled': ^11.10.6
+            '@mui/material': ^5.11.10
+            clsx: ^1.2.1
+            prop-types: ^15.8.1
+            react: ^18.2.0
+            react-dom: ^18.2.0
+        dependencies:
+            '@emotion/react': 11.11.3(@types/react@18.2.24)(react@18.2.0)
+            '@emotion/styled': 11.11.0(@emotion/react@11.11.3)(@types/react@18.2.24)(react@18.2.0)
+            '@mui/material': 5.15.2(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@types/react@18.2.24)(react-dom@18.2.0)(react@18.2.0)
+            clsx: 1.2.1
+            country-flag-icons: 1.5.13
+            lodash: 4.17.21
+            prop-types: 15.8.1
+            react: 18.2.0
+            react-dom: 18.2.0(react@18.2.0)
+        dev: false
 
     /nanoid@3.3.6:
         resolution:
