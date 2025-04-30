@@ -6,8 +6,8 @@ import { updateUser } from '@/redux/features/auth/auth-slice';
 import { useAppDispatch } from '@/redux/store';
 import FormFields from '@/components/FormFields/FormFields';
 import classes from './SignupWizard.module.scss';
-import NavBar from '@/components/Navbar/NavBar';
 import { userSignup } from '@/redux/features/auth/auth-queries';
+import { useRouter } from 'next/router';
 
 interface SignupProps {
     isMobileServer: boolean;
@@ -16,6 +16,7 @@ interface SignupProps {
 const Signup: React.FC<SignupProps> = ({ isMobileServer }) => {
     const [showPassword, setShowPassword] = useState(false);
     const dispatch = useAppDispatch();
+    const router = useRouter();
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -95,6 +96,7 @@ const Signup: React.FC<SignupProps> = ({ isMobileServer }) => {
             last_name: formData.last_name,
         };
         dispatch(updateUser(userData));
+        router.push('/dashboard');
     };
 
     const onErrors = (formData: any, event: any) => {
@@ -118,7 +120,6 @@ const Signup: React.FC<SignupProps> = ({ isMobileServer }) => {
 
     return (
         <>
-            <NavBar />
             <Box className={classes['wg-signup-container']}>
                 <Typography variant="h2" className={classes['wg-signup-text']}>
                     Sign Up to WingGo

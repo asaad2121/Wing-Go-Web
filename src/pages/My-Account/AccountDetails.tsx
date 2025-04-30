@@ -1,7 +1,6 @@
-import NavBar from '@/components/Navbar/NavBar';
+import React, { useEffect, useState } from 'react';
 import { Box, Button } from '@mui/material';
 import classes from './AccountDetails.module.scss';
-import React, { useEffect, useState } from 'react';
 import { getUserInfo } from '@/redux/features/account-details/account-details-queries';
 import { snackbar } from '@/components/Snackbar/Snackbar';
 import FormFields from '@/components/FormFields/FormFields';
@@ -101,9 +100,10 @@ const AccountDetails: React.FC = () => {
     const submit = (errors: any[]) => {
         if (!editDetails) {
             return (
-                <Box display={'flex'} flexDirection={'column'} gap={'16px'} mt={2}>
+                <Box>
                     <Button
-                        type={'button'}
+                        variant="outlined"
+                        type="submit"
                         className={classes['wg-myAccount-button']}
                         onClick={() => setEditDetails(true)}
                     >
@@ -114,8 +114,13 @@ const AccountDetails: React.FC = () => {
         }
 
         return (
-            <Box display={'flex'} flexDirection={'column'} gap={'16px'} mt={2}>
-                <Button type={'submit'} className={classes['wg-myAccount-button']} disabled={errors?.length > 0}>
+            <Box>
+                <Button
+                    variant="outlined"
+                    type="submit"
+                    className={classes['wg-myAccount-button']}
+                    disabled={errors?.length > 0}
+                >
                     {'Save'}
                 </Button>
             </Box>
@@ -130,7 +135,6 @@ const AccountDetails: React.FC = () => {
 
     return (
         <>
-            <NavBar />
             <Box className={classes['wg-myAccount-container']}>
                 <h1>My Account Details</h1>
                 <FormFields
