@@ -7,6 +7,10 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from '../src/styles/theme';
 import '../src/styles/global.css';
 import SnackBar from '@/components/Snackbar/Snackbar';
+import NavBar from '@/components/Navbar/NavBar';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import { getPageTitleFromPath } from '@/shared/utility';
 
 const client = new ApolloClient({
     uri: 'http://localhost:8000/graphql',
@@ -14,27 +18,24 @@ const client = new ApolloClient({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+    const router = useRouter();
+    const dynamicTitle = `${getPageTitleFromPath(router.pathname)} | WingGo`;
     return (
-        <ThemeProvider theme={theme}>
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-            <link
-                href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap"
-                rel="stylesheet"
-            />
-            <style jsx global>{`
-                html {
-                    font-family: 'Afacad Flux', sans-serif;
-                }
-            `}</style>
-            <Provider store={store}>
-                <CssBaseline />
-                <ApolloProvider client={client}>
-                    <Component {...pageProps} />
-                </ApolloProvider>
-            </Provider>
-            <SnackBar />
-        </ThemeProvider>
+        <>
+            <Head>
+                <title>{dynamicTitle}</title>
+            </Head>
+            <ThemeProvider theme={theme}>
+                <Provider store={store}>
+                    <CssBaseline />
+                    <ApolloProvider client={client}>
+                        <NavBar />
+                        <Component {...pageProps} />
+                    </ApolloProvider>
+                </Provider>
+                <SnackBar />
+            </ThemeProvider>
+        </>
     );
 }
 

@@ -1,4 +1,3 @@
-// pages/_document.js
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
@@ -12,6 +11,11 @@ class MyDocument extends Document {
                         href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap"
                         rel="stylesheet"
                     />
+                    <style jsx global>{`
+                        html {
+                            font-family: 'Afacad Flux', sans-serif;
+                        }
+                    `}</style>
                 </Head>
                 <body>
                     <Main />
