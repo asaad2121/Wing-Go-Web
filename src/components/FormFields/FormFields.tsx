@@ -26,55 +26,55 @@ const FormFields: React.FC<FormFieldsProps> = ({ formFields, onSubmit, onError, 
                 {formFields.map((field: any, i: number) => (
                     <Controller
                         key={i}
-                        name={field.name}
+                        name={field?.name}
                         control={control}
                         rules={{
                             pattern: {
-                                value: new RegExp(field.regex),
-                                message: field.regex_message,
+                                value: new RegExp(field?.regex),
+                                message: field?.regex_message,
                             },
                         }}
                         render={({ field: { onChange, value } }) => (
                             <Box mb={3}>
                                 <FormControl className={classes['wg-formFields-formControl']} key={i}>
-                                    <InputLabel htmlFor={field.name} className={classes['wg-formFields-label']} shrink>
-                                        {field.label}
+                                    <InputLabel htmlFor={field?.name} className={classes['wg-formFields-label']} shrink>
+                                        {field?.label}
                                     </InputLabel>
-                                    {field.type === 'tel' && (
+                                    {field?.type === 'tel' && (
                                         <MuiPhoneNumber
                                             defaultCountry="in"
                                             className={classes['wg-formFields-phoneField']}
-                                            value={value || field.value}
-                                            disabled={field.disabled}
-                                            required={field.required}
+                                            value={value || field?.value}
+                                            disabled={field?.disabled}
+                                            required={field?.required}
                                             onChange={(e) => {
                                                 onChange(e);
-                                                customOnChange && customOnChange(field.name, e);
-                                                if (trigger) trigger(field.name);
+                                                customOnChange && customOnChange(field?.name, e);
+                                                if (trigger) trigger(field?.name);
                                             }}
                                         />
                                     )}
-                                    {field.type !== 'tel' && (
+                                    {field?.type !== 'tel' && (
                                         <OutlinedInput
-                                            id={field.id}
-                                            type={field.type}
-                                            value={value || field.value}
+                                            id={field?.id}
+                                            type={field?.type}
+                                            value={value || field?.value}
                                             error={Boolean(errors[field?.name])}
                                             className={classes['wg-formFields-inputField']}
-                                            autoComplete={field.autoComplete}
-                                            disabled={field.disabled}
+                                            autoComplete={field?.autoComplete}
+                                            disabled={field?.disabled}
                                             fullWidth
-                                            required={field.required}
+                                            required={field?.required}
                                             onChange={(e) => {
                                                 onChange(e.target.value);
-                                                customOnChange && customOnChange(field.name, e.target.value);
-                                                if (trigger) trigger(field.name);
+                                                customOnChange && customOnChange(field?.name, e.target.value);
+                                                if (trigger) trigger(field?.name);
                                             }}
                                             onFocus={() => {
-                                                if (trigger) trigger(field.name);
+                                                if (trigger) trigger(field?.name);
                                             }}
-                                            endAdornment={field.endAdornment}
-                                            label={field.label}
+                                            endAdornment={field?.endAdornment}
+                                            label={field?.label}
                                         />
                                     )}
                                 </FormControl>
