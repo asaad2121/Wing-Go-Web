@@ -1,6 +1,7 @@
 .wg-dashboard-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-top: 64px;
     align-items: center;
     flex-direction: column;
     gap: 40px;
@@ -9,4 +10,20 @@
     position: fixed;
     background-color: #163300;
     color: #9fe870;
+}
+
+.wg-carousel-container {
+    margin: 48px auto;
+    width: calc(100% - 48px); // 900px;
+    height: 300px;
+}
+
+.wg-carousel-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 300px;
+    text-align: center;
+    border: 12px;
 }
