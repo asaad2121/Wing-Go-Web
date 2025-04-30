@@ -6,7 +6,6 @@ import { updateUser } from '@/redux/features/auth/auth-slice';
 import { useAppDispatch } from '@/redux/store';
 import FormFields from '@/components/FormFields/FormFields';
 import classes from './LoginWizard.module.scss';
-import NavBar from '@/components/Navbar/NavBar';
 import { userLogin } from '@/redux/features/auth/auth-queries';
 import { snackbar } from '@/components/Snackbar/Snackbar';
 import { useRouter } from 'next/router';
@@ -100,7 +99,6 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
 
     return (
         <>
-            <NavBar />
             <Box className={classes['wg-login-container']}>
                 <Typography variant="h2" className={classes['wg-login-text']}>
                     Enter User Credentials

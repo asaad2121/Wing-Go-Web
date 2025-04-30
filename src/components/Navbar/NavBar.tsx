@@ -39,17 +39,15 @@ function NavBar() {
         <>
             <AppBar position="static" className={classes['wg-navbar-root']}>
                 <Toolbar>
-                    {auth && (
-                        <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-                            <MenuIcon />
-                        </IconButton>
-                    )}
-                    <Box flexGrow={1} display={'flex'} alignItems={'center'}>
+                    <div
+                        className={classes['wg-navbar-main-icon']}
+                        onClick={() => router.push(auth ? '/dashboard' : '/')}
+                    >
                         <AdbIcon />
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             WingGo
                         </Typography>
-                    </Box>
+                    </div>
                     <Box>
                         {auth ? (
                             <div>

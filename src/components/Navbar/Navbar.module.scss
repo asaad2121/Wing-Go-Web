@@ -5,3 +5,10 @@
     border-bottom: 1px solid #9fe870;
     z-index: 1000;
 }
+
+.wg-navbar-main-icon {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    cursor: pointer;
+}
