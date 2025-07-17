@@ -8,6 +8,7 @@ import FormFields from '@/components/FormFields/FormFields';
 import classes from './SignupWizard.module.scss';
 import { userSignup } from '@/redux/features/auth/auth-queries';
 import { useRouter } from 'next/router';
+import GoogleIcon from './../../../public/GoogleIcon';
 
 interface SignupProps {
     isMobileServer: boolean;
@@ -103,9 +104,25 @@ const Signup: React.FC<SignupProps> = ({ isMobileServer }) => {
         console.error(formData);
     };
 
-    const submit = (errors: any[]) => {
+    const GoogleOAuthButton = () => {
+        const handleGoogleLogin = () => {
+            window.location.href = `${process.env.REACT_APP_API}/auth/google/callback`;
+        };
+
         return (
             <Box mt={2}>
+                <Button onClick={handleGoogleLogin} className={classes['wg-google-oauth-button']}>
+                    <GoogleIcon style={{ width: '20px', height: '20px' }} />
+                    {'Sign up with Google'}
+                </Button>
+            </Box>
+        );
+    };
+
+    const submit = (errors: any[]) => {
+        return (
+            <Box mt={2} className={classes['wg-signup-box']}>
+                {GoogleOAuthButton()}
                 <Button
                     variant="outlined"
                     type="submit"

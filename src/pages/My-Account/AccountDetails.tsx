@@ -91,6 +91,10 @@ const AccountDetails: React.FC = () => {
     };
 
     const submitData = async (formData: any, _: any) => {
+        const mergedData = {
+            ...userInfo,
+            ...Object.fromEntries(Object.entries(formData).filter(([_, value]) => value !== undefined)),
+        };
         console.log(formData, userInfo);
     };
     const onErrors = (formData: any, event: any) => {

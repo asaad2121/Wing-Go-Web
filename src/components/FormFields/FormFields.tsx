@@ -28,12 +28,17 @@ const FormFields: React.FC<FormFieldsProps> = ({ formFields, onSubmit, onError, 
                         key={i}
                         name={field?.name}
                         control={control}
-                        rules={{
-                            pattern: {
-                                value: new RegExp(field?.regex),
-                                message: field?.regex_message,
-                            },
-                        }}
+                        // TO-DO: Check the validation error problems for type 'tel'
+                        rules={
+                            field?.type === 'tel'
+                                ? {}
+                                : {
+                                      pattern: {
+                                          value: new RegExp(field?.regex),
+                                          message: field?.regex_message,
+                                      },
+                                  }
+                        }
                         render={({ field: { onChange, value } }) => (
                             <Box mb={3}>
                                 <FormControl className={classes['wg-formFields-formControl']} key={i}>
@@ -42,13 +47,14 @@ const FormFields: React.FC<FormFieldsProps> = ({ formFields, onSubmit, onError, 
                                     </InputLabel>
                                     {field?.type === 'tel' && (
                                         <MuiPhoneNumber
-                                            defaultCountry="in"
+                                            defaultCountry="nz"
                                             className={classes['wg-formFields-phoneField']}
                                             value={value || field?.value}
                                             disabled={field?.disabled}
                                             required={field?.required}
                                             onChange={(e) => {
                                                 onChange(e);
+                                                console.log(field?.name, e);
                                                 customOnChange && customOnChange(field?.name, e);
                                                 if (trigger) trigger(field?.name);
                                             }}

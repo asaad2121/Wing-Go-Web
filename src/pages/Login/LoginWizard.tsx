@@ -9,6 +9,7 @@ import classes from './LoginWizard.module.scss';
 import { userLogin } from '@/redux/features/auth/auth-queries';
 import { snackbar } from '@/components/Snackbar/Snackbar';
 import { useRouter } from 'next/router';
+import GoogleIcon from './../../../public/GoogleIcon';
 
 interface LoginProps {
     isMobileServer: boolean;
@@ -82,9 +83,25 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
         console.error(formData);
     };
 
-    const submit = (errors: any[]) => {
+    const GoogleOAuthButton = () => {
+        const handleGoogleLogin = () => {
+            window.location.href = `${process.env.REACT_APP_API}/auth/google/callback`;
+        };
+
         return (
             <Box mt={2}>
+                <Button onClick={handleGoogleLogin} className={classes['wg-google-oauth-button']}>
+                    <GoogleIcon style={{ width: '20px', height: '20px' }} />
+                    {'Sign in with Google'}
+                </Button>
+            </Box>
+        );
+    };
+
+    const submit = (errors: any[]) => {
+        return (
+            <Box mt={2} className={classes['wg-signup-box']}>
+                {GoogleOAuthButton()}
                 <Button
                     variant="outlined"
                     type="submit"

@@ -16,6 +16,13 @@
     font-weight: bold;
 }
 
+.wg-signup-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .wg-signup-submitForm {
     border: 1px solid #9fe870;
     color: #9fe870;
@@ -24,4 +31,27 @@
         border: 1px solid #163300 !important;
         color: #163300;
     }
+}
+
+.wg-google-oauth-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 10px;
+    background-color: #131314;
+    border: 2px solid #747775;
+    border-radius: 20px;
+    color: #e3e3e3;
+    cursor: pointer;
+    font-family: 'Roboto', arial, sans-serif !important;
+    text-transform: none;
+    font-weight: 600;
+    font-size: 14px;
+    height: 40px;
+    letter-spacing: 0.25px;
+    width: auto;
+    max-width: 400px;
+    min-width: min-content;
+    border-color: #8e918f;
 }

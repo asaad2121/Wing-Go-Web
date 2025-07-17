@@ -1,9 +1,15 @@
 import axios from 'axios';
+axios.defaults.withCredentials = true;
 
-export const apiQuery = async (apiQuery: string, apiProperties?: any) => {
+export const apiQuery = async (apiQuery: string, apiProperties?: any, apiQueryType: 'post' | 'get' = 'post') => {
     try {
-        const response = await axios.post(apiQuery, apiProperties, {withCredentials: true,});
-        return response.data;
+        if (apiQueryType === 'get') {
+            const response = await axios.get(apiQuery, { params: apiProperties, withCredentials: true });
+            return response.data;
+        } else {
+            const response = await axios.post(apiQuery, apiProperties, { withCredentials: true });
+            return response.data;
+        }
     } catch (err: any) {
         if (err?.status === 401) {
             window.location.href = '/login';
