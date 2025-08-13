@@ -20,3 +20,7 @@ export const getPageTitleFromPath = (path: string): string => {
 
     return words.join(' ') || 'WingGo';
 };
+
+export const getImageFromCloudinary = (path: string): string => {
+    return `https://res.cloudinary.com/winggoimagelibrary/image/upload/${process.env.CLOUDINARY_ID}/${path}`;
+};

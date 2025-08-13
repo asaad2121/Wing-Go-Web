@@ -1,4 +1,4 @@
-import { apiQuery } from '@/settings/api/queries';
+import { apiQuery } from '@/settings/api-queries';
 import { logOut } from './auth-slice';
 
 export const userLogin = async ({ email, password }: { email: string; password: string }) => {

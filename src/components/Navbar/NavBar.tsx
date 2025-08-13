@@ -33,6 +33,7 @@ function NavBar() {
     const handleLogout = () => {
         dispatch(logOut());
         snackbar.info('Logged out successfully', 5000);
+        router.push('/login');
     };
 
     return (

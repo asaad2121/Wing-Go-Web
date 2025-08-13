@@ -1,5 +1,5 @@
 import { store } from '@/redux/store';
-import { apiQuery } from '@/settings/api/queries';
+import { apiQuery } from '@/settings/api-queries';
 
 export const getUserInfo = async () => {
     const email = store.getState().auth?.value?.user_email;
