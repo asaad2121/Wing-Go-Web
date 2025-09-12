@@ -1,0 +1,98 @@
+.wg-Cards-root {
+    cursor: pointer;
+    flex: 0 0 auto;
+    // width: calc(33% - 30px);
+    width: 350px;
+
+    @media (max-width: 1158px) {
+        width: calc(50% - 50px);
+    }
+
+    @media (max-width: 835px) {
+        width: 90%;
+    }
+}
+
+.wg-Cards-cardMedia {
+    height: 120px;
+}
+
+.wg-Cards-cardContent {
+    padding: 8px 16px;
+}
+
+.wg-Cards-topContent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 80px;
+    @media (max-width: 410px) {
+        height: 120px;
+    }
+}
+
+.wg-Cards-title-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 100%;
+}
+
+.wg-Cards-title {
+    font-size: 24px;
+    color: #163300;
+    font-weight: bold;
+}
+
+.wg-Cards-address {
+    font-size: 16px;
+    color: #163300;
+}
+
+.wg-Cards-bottomContent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 24px;
+}
+
+.wg-Cards-rating {
+    font-size: 22px;
+    color: #163300;
+    line-height: 100%;
+    font-weight: bold;
+}
+
+.wg-Cards-rating-5 {
+    font-size: 14px;
+    color: #163300;
+}
+
+.wg-Cards-ratingValue {
+    font-size: 22px;
+    color: #163300;
+    font-weight: bold;
+    margin-left: 10px;
+    line-height: 100%;
+}
+
+.wg-Cards-cost {
+    font-size: 18px;
+    color: #163300;
+    font-weight: bold;
+    line-height: 80%;
+}
+
+.wg-Cards-perNight {
+    font-size: 12px;
+    color: #163300;
+}
+
+.wg-Cards-cardActions {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 4px 16px;
+}
