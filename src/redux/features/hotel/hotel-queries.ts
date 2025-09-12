@@ -5,17 +5,41 @@ export const getTopHotels = async ({ limit, imagesLimit }: { limit: number; imag
 };
 
 export const getHotelsByCity = async ({
-    cityID,
+    cityId,
     limit,
     imagesLimit,
 }: {
-    cityID: number;
-    limit: number;
-    imagesLimit: number;
+    cityId: number;
+    limit?: number;
+    imagesLimit?: number;
 }) => {
-    return await apiQuery(`${process.env.REACT_APP_API}/hotel/getHotelsByCity`, { cityID, limit, imagesLimit }, 'get');
+    return await apiQuery(`${process.env.REACT_APP_API}/hotel/getHotelsByCity`, { cityId, limit, imagesLimit }, 'get');
 };
 
 export const getHotelsForTopCities = async ({ limit, imagesLimit }: { limit?: number; imagesLimit?: number }) => {
     return await apiQuery(`${process.env.REACT_APP_API}/hotel/getHotelsForTopCities`, { limit, imagesLimit }, 'get');
+};
+
+export const getHotelData = async ({ id }: { id?: number | string | string[] }) => {
+    return await apiQuery(`${process.env.REACT_APP_API}/hotel/getHotelData`, { id }, 'get');
+};
+
+export const getFilteredHotels = async ({
+    cityIds,
+    rating,
+    limit,
+    currentPageNo,
+    imagesLimit,
+}: {
+    cityIds?: number[];
+    rating?: number[];
+    limit?: number;
+    currentPageNo?: number;
+    imagesLimit?: number;
+}) => {
+    return await apiQuery(
+        `${process.env.REACT_APP_API}/hotel/getFilteredHotels`,
+        { cityIds, rating, limit, currentPageNo, imagesLimit },
+        'get'
+    );
 };
