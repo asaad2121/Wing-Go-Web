@@ -3,7 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "npm run prettier && next dev",
+        "dev": "pnpm run prettier && next dev",
+        "localserver": "pnpm run prettier && next dev -- -H 0.0.0.0",
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
@@ -20,6 +21,7 @@
         "axios": "^1.7.7",
         "dotenv": "^16.3.1",
         "graphql": "^16.8.1",
+        "mapbox-gl": "^3.14.0",
         "mini-css-extract-plugin": "^2.9.1",
         "mui-phone-number": "^3.0.3",
         "next": "13.5.4",
