@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import NavBar from '../src/components/Navbar/NavBar';
 
 const IndexPage: React.FC = () => {
+    const router = useRouter();
+
+    useEffect(() => {
+        router.push('/dashboard');
+    }, [router]);
+
     return (
         <>
             <NavBar />
-            {/* Landing Page -> Redirect to dashboard is user auth from Redux */}
         </>
     );
 };
