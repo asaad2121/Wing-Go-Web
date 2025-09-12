@@ -24,3 +24,7 @@ export const getPageTitleFromPath = (path: string): string => {
 export const getImageFromCloudinary = (path: string): string => {
     return `https://res.cloudinary.com/winggoimagelibrary/image/upload/${process.env.CLOUDINARY_ID}/${path}`;
 };
+
+export const limitedCharString = (sentence: string, charLimit: number): string => {
+    return sentence?.length > charLimit ? sentence?.substring(0, charLimit) + '...' : sentence;
+};
