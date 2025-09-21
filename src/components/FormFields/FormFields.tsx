@@ -54,7 +54,6 @@ const FormFields: React.FC<FormFieldsProps> = ({ formFields, onSubmit, onError, 
                                             required={field?.required}
                                             onChange={(e) => {
                                                 onChange(e);
-                                                console.log(field?.name, e);
                                                 customOnChange && customOnChange(field?.name, e);
                                                 if (trigger) trigger(field?.name);
                                             }}

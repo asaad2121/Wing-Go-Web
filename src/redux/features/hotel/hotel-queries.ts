@@ -27,19 +27,21 @@ export const getHotelData = async ({ id }: { id?: number | string | string[] }) 
 export const getFilteredHotels = async ({
     cityIds,
     rating,
+    priceRange,
     limit,
     currentPageNo,
     imagesLimit,
 }: {
     cityIds?: number[];
-    rating?: number[];
+    rating?: number | number[];
+    priceRange?: number[];
     limit?: number;
     currentPageNo?: number;
     imagesLimit?: number;
 }) => {
     return await apiQuery(
         `${process.env.REACT_APP_API}/hotel/getFilteredHotels`,
-        { cityIds, rating, limit, currentPageNo, imagesLimit },
+        { cityIds, rating, priceRange, limit, currentPageNo, imagesLimit },
         'get'
     );
 };
