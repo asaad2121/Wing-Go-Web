@@ -1,0 +1,212 @@
+.wg-touristPlace-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 64px 30px;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #163300;
+    color: #9fe870;
+    gap: 32px;
+}
+
+.wg-touristPlace-link {
+    margin-right: auto;
+    text-align: left;
+    margin-top: 28px;
+    font-size: 18px;
+    color: #9fe870;
+}
+
+.wg-touristPlace-header {
+    display: flex;
+    min-width: 100%;
+    gap: 32px;
+    @media (max-width: 1158px) {
+        flex-direction: column;
+        gap: 16px;
+        width: calc(50% - 50px);
+    }
+
+    @media (max-width: 835px) {
+        width: 90%;
+    }
+}
+
+.wg-carousel-root {
+    min-width: 60%;
+}
+
+.wg-carousel-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 550px;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.wg-touristPlace-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.wg-touristPlace-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.wg-touristPlace-mapbox {
+    margin-top: 4px;
+    max-width: fit-content;
+}
+
+.wg-more-touristPlaces {
+    font-size: 36px;
+    margin-top: 36px;
+    text-align: left;
+    width: 100%;
+    @media (max-width: 835px) {
+        font-size: 30px;
+    }
+}
+
+.wg-touristPlace-cardslist {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    -ms-overflow-style: 'none';
+    scrollbar-width: 'none';
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    @media (max-width: 835px) {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+.wg-touristPlaceList-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.wg-touristPlaceList-title {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.wg-touristPlaceList-filter {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #9fe870;
+    color: #9fe870;
+    &:hover {
+        background-color: #9fe870;
+        border: 1px solid #163300 !important;
+        color: #163300;
+    }
+}
+
+.wg-touristPlaceList-cardslist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+}
+
+.wg-touristPlaceList-pagination {
+    display: flex;
+    margin: 0 auto;
+    max-width: 700px;
+    border: 1px solid #9fe870;
+    border-radius: 16px;
+    padding: 4px;
+}
+
+.wg-touristPlaceList-dialog {
+    border: 2px solid #9fe870;
+    border-radius: 16px;
+}
+
+.wg-touristPlaceList-closeDialogIcon {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.wg-touristPlaceList-dialogBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #163300;
+    width: 300px;
+    height: 300px;
+    @media (max-width: 350px) {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+.wg-touristPlaceList-cityForm {
+    width: 80%;
+}
+
+.wg-touristPlaceList-cityForm-inputField {
+    background-color: #9fe870;
+    border-radius: 10px;
+    fieldset {
+        border: 1px solid #9fe870 !important;
+        border-radius: 10px;
+    }
+    input {
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+    }
+}
+
+.wg-touristPlaceList-cityForm-label {
+    font-size: 16px;
+    color: #163300 !important;
+    font-weight: bold;
+    background-color: #9fe870 !important;
+    border-radius: 12px;
+    padding: 0 8px;
+}
+
+.wg-touristPlaceList-cityForm-menuItem {
+    background-color: #9fe870;
+}
+
+.wg-touristPlaceList-cityForm-submitForm {
+    border: 1px solid #9fe870;
+    color: #9fe870;
+    &:hover {
+        background-color: #9fe870;
+        border: 1px solid #163300 !important;
+        color: #163300;
+    }
+}
