@@ -148,28 +148,28 @@ const DashboardWizard: React.FC = () => {
 
                 <Box className={classes['wg-dashboard-buttonGroup']}>
                     <Button
-                            variant="outlined"
-                            type="submit"
-                            className={classes['wg-dashboard-filter']}
-                            onClick={() => router.push(`/hotels`)}
-                        >
-                            View Hotels
+                        variant="outlined"
+                        type="submit"
+                        className={classes['wg-dashboard-filter']}
+                        onClick={() => router.push(`/hotels`)}
+                    >
+                        View Hotels
                     </Button>
                     <Button
-                            variant="outlined"
-                            type="submit"
-                            className={classes['wg-dashboard-filter']}
-                            onClick={() => console.log()}
-                        >
-                            Plan a trip!
+                        variant="outlined"
+                        type="submit"
+                        className={classes['wg-dashboard-filter']}
+                        onClick={() => console.log()}
+                    >
+                        Plan a trip!
                     </Button>
                     <Button
-                            variant="outlined"
-                            type="submit"
-                            className={classes['wg-dashboard-filter']}
-                            onClick={() => router.push(`/tourist-destinations`)}
-                        >
-                            View Tourist destinations
+                        variant="outlined"
+                        type="submit"
+                        className={classes['wg-dashboard-filter']}
+                        onClick={() => router.push(`/tourist-destinations`)}
+                    >
+                        View Tourist destinations
                     </Button>
                 </Box>
 

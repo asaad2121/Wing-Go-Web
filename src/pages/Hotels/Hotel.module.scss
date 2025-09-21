@@ -74,25 +74,30 @@
     align-items: flex-start;
     flex-direction: column;
     width: 100%;
+    @media (max-width: 1158px) {
+        width: 60%;
+    }
+    @media (max-width: 760px) {
+        width: 100%;
+    }
 }
 
 .wg-hotel-rating-price {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2px;
-    @media (max-width: 835px) {
-        gap: 0px;
+    align-items: flex-start;
+    width: 100%;
+    gap: 8px;
+    flex-direction: row;
+    @media (max-width: 425px) {
         flex-direction: column;
-        align-items: flex-start;
     }
 }
 
-.wg-hotel-rating {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
+.wg-hotel-price {
+    width: 30%;
+    @media (max-width: 1158px) {
+        width: 100%;
+    }
 }
 
 .wg-hotel-mapbox {

@@ -151,6 +151,7 @@ const AllTouristPlacessView = () => {
                             key={tp.id}
                             title={tp.name}
                             address={tp.address}
+                            description={tp.description}
                             cost={tp.cost}
                             imageUrl={getImageFromCloudinary(tp.images[0]?.imagePublicId)}
                             onClick={() => router.push(`/tourist-destinations/${tp.id}`)}

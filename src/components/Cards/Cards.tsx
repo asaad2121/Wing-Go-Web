@@ -15,15 +15,17 @@ type CardsProps = {
     cost?: string;
     onClick?: () => void;
     isTouristPlace?: boolean | false;
+    description?: string;
 };
 
 const CardsComponent = React.forwardRef<HTMLDivElement, CardsProps>(
-    ({ imageUrl, title, rating, address, cost, onClick, isTouristPlace }, ref) => {
+    ({ imageUrl, title, rating, address, cost, onClick, isTouristPlace, description }, ref) => {
         const isTablet = useMediaQuery('(max-width:1158px) and (min-width:775px)');
         const [titleText] = useState(limitedCharString(title || '', 19));
         const [addressText, setAddressText] = useState(address || '');
 
         useEffect(() => {
+            if (isTouristPlace) return;
             const limit = isTablet ? 48 : 60;
             setAddressText(limitedCharString(address || '', limit));
         }, [address, isTablet]);
@@ -42,7 +44,7 @@ const CardsComponent = React.forwardRef<HTMLDivElement, CardsProps>(
             <Card className={classes['wg-Cards-root']} onClick={onClick}>
                 <CardMedia className={classes['wg-Cards-cardMedia']} image={imageUrl} title={titleText} />
                 <CardContent className={classes['wg-Cards-cardContent']}>
-                    <div className={classes['wg-Cards-topContent']}>
+                    <div className={classes[isTouristPlace ? 'wg-Cards-topContent-desc' : 'wg-Cards-topContent']}>
                         <div className={classes['wg-Cards-title-rating']}>
                             <Typography variant="h5" className={classes['wg-Cards-title']}>
                                 {titleText}
@@ -70,6 +72,12 @@ const CardsComponent = React.forwardRef<HTMLDivElement, CardsProps>(
                     )}
                 </CardContent>
                 <Divider />
+
+                {description && (
+                    <CardActions className={classes['wg-Cards-cardActions-desc']}>
+                        <Typography className={classes['wg-Cards-description']}>{description}</Typography>
+                    </CardActions>
+                )}
 
                 {cost && (
                     <CardActions className={classes['wg-Cards-cardActions']}>

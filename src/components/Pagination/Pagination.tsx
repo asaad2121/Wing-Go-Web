@@ -58,7 +58,7 @@ const PaginationBar: React.FC<PaginationBarProps> = ({
                         fontSize: '18px !important',
                     },
                     '& .MuiPaginationItem-root.Mui-selected': {
-                        backgroundColor: '#9fe870',
+                        backgroundColor: '#9fe870 !important',
                         color: '#163300 !important',
                     },
                 }}

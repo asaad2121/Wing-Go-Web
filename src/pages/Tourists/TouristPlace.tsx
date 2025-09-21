@@ -23,6 +23,7 @@ interface TouristPlace {
     longitude: string;
     contactNo?: string;
     email?: string;
+    description?: string;
     images: [
         {
             imagePublicId: string;
@@ -133,7 +134,10 @@ const TouristPlaceView: React.FC = () => {
                     </Box>
                 </Box>
             </Box>
-
+            <Box width={'100%'}>
+                <Typography variant="h4">Description</Typography>
+                <Typography variant="h6">{touristPlaceData?.description}</Typography>
+            </Box>
             <Typography variant="h3" className={classes['wg-more-touristPlaces']}>
                 More Tourist Places{' '}
                 {relatedTouristPlaces.length > 0

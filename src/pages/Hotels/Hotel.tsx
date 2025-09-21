@@ -125,29 +125,31 @@ const HotelView: React.FC = () => {
                             <b>{hotelData?.name}</b>
                         </Typography>
                         <Typography variant="h5">{hotelData?.address}</Typography>
-                        <Box className={classes['wg-hotel-rating-price']}>
-                            <Typography variant="h6" className={classes['wg-hotel-rating']}>
-                                {`Price (Per night): $${hotelData?.pricePerNight || 'N/A'}`}
-                            </Typography>
-                            {!isTablet && <Typography variant="h6">{' | '}</Typography>}
-                            <Typography variant="h6" className={classes['wg-hotel-rating']}>
-                                {`Rating: ${hotelData?.rating || '0'}`}
-                                <Rating
-                                    name="rating"
-                                    value={parseFloat(hotelData?.rating?.toString() || '0')}
-                                    precision={0.5}
-                                    readOnly
-                                    size="small"
-                                />
-                            </Typography>
-                        </Box>
                     </Box>
                     <Box className={classes['wg-hotel-mapbox']}>
                         <div ref={mapContainerRef} style={{ height: mapSize, width: mapSize }} />
                     </Box>
                 </Box>
             </Box>
-
+            <Box className={classes['wg-hotel-rating-price']}>
+                <Box className={classes['wg-hotel-price']}>
+                    <Typography variant="h4">Price (per night)</Typography>
+                    <Typography variant="h6">{hotelData?.pricePerNight}</Typography>
+                </Box>
+                <Box className={classes['wg-hotel-price']}>
+                    <Typography variant="h4">Ratings</Typography>
+                    <Typography variant="h6">
+                        {hotelData?.rating}
+                        <Rating
+                            name="rating"
+                            value={parseFloat(hotelData?.rating?.toString() || '0')}
+                            precision={0.5}
+                            readOnly
+                            size="small"
+                        />
+                    </Typography>
+                </Box>
+            </Box>
             <Typography variant="h3" className={classes['wg-more-hotels']}>
                 More Hotels {relatedHotels.length > 0 ? `in ${relatedHotels[0]?.city?.name}` : 'near this hotel'}
             </Typography>

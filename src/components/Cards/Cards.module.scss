@@ -96,3 +96,34 @@
     flex-direction: column;
     padding: 4px 16px;
 }
+
+.wg-Cards-topContent-desc {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 80px;
+    @media (max-width: 835px) {
+        height: 60px;
+    }
+    @media (max-width: 500px) {
+        height: 80px;
+    }
+}
+
+.wg-Cards-cardActions-desc {
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 4px 16px;
+}
+
+.wg-Cards-description {
+    font-size: 16px;
+    color: #163300;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: inherit;
+}
