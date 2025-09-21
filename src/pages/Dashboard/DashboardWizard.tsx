@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Button, Paper, Typography } from '@mui/material';
 import classes from './DashboardWizard.module.scss';
 import { getHotelsForTopCities, getTopHotels } from '@/redux/features/hotel/hotel-queries';
 import { snackbar } from '@/components/Snackbar/Snackbar';
@@ -134,7 +134,7 @@ const DashboardWizard: React.FC = () => {
                                     }}
                                     onClick={() => router.push(`/hotels/${card.id}`)}
                                 >
-                                    <Typography variant="h5" className={classes['wg-carousel-title']} gutterBottom>
+                                    <Typography variant="h5" className={classes['wg-carousel-title']}>
                                         {card?.name}
                                     </Typography>
                                     <Typography variant="body1" className={classes['wg-carousel-address']}>
@@ -145,6 +145,34 @@ const DashboardWizard: React.FC = () => {
                         </Carousel>
                     </div>
                 )}
+
+                <Box className={classes['wg-dashboard-buttonGroup']}>
+                    <Button
+                            variant="outlined"
+                            type="submit"
+                            className={classes['wg-dashboard-filter']}
+                            onClick={() => router.push(`/hotels`)}
+                        >
+                            View Hotels
+                    </Button>
+                    <Button
+                            variant="outlined"
+                            type="submit"
+                            className={classes['wg-dashboard-filter']}
+                            onClick={() => console.log()}
+                        >
+                            Plan a trip!
+                    </Button>
+                    <Button
+                            variant="outlined"
+                            type="submit"
+                            className={classes['wg-dashboard-filter']}
+                            onClick={() => router.push(`/tourist-destinations`)}
+                        >
+                            View Tourist destinations
+                    </Button>
+                </Box>
+
                 <Box className={classes['wg-carousel-hotelBox']}>
                     {Object.entries(topCityHotels)?.map(([cityName, hotels]) => {
                         const touristPlaces = topCityTouristPlaces?.[cityName] ?? [];
