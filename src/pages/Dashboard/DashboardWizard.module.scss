@@ -4,7 +4,6 @@
     padding: 64px 30px 0;
     align-items: center;
     flex-direction: column;
-    gap: 40px;
     height: 100%;
     width: 100%;
     background-color: #163300;
@@ -12,9 +11,8 @@
 }
 
 .wg-carousel-container {
-    margin: 48px 0;
-    width: calc(100%); // 900px;
-    height: 300px;
+    margin-top: 28px;
+    width: 100%;
 }
 
 .wg-carousel-slide {
@@ -22,10 +20,45 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 300px;
+    height: 400px;
     text-align: center;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+}
+
+.wg-carousel-hotelBox {
+    width: 100%;
+}
+
+.wg-dashboard-cardslist {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    -ms-overflow-style: 'none';
+    scrollbar-width: 'none';
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.wg-carousel-title {
+    font-size: 32px;
+    color: #9fe870;
+    font-weight: bold;
+    background-color: #163300;
+    padding: 0px 8px;
+    border-radius: 12px;
+}
+
+.wg-carousel-address {
+    font-size: 24px;
+    font-weight: bold;
+    color: #9fe870;
+    background-color: #163300;
+    padding: 0px 8px;
+    border-radius: 12px;
 }
