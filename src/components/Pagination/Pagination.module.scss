@@ -1,0 +1,39 @@
+.wg-pagination-root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 4px;
+    flex-wrap: wrap;
+}
+
+.wg-pagination-select {
+    background-color: #9fe870;
+    border-radius: 10px;
+    fieldset {
+        border: 1px solid #9fe870 !important;
+        border-radius: 10px;
+    }
+    input {
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+    }
+}
+
+.wg-pagination-menuItem {
+    background-color: #9fe870;
+}
+
+.wg-pagination-textField {
+    width: 80px;
+    background-color: #9fe870;
+    border-radius: 10px;
+    fieldset {
+        border: 1px solid #9fe870 !important;
+        border-radius: 10px;
+    }
+    input {
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+    }
+}
