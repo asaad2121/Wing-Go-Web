@@ -1,0 +1,241 @@
+.wg-hotel-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 64px 30px;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #163300;
+    color: #9fe870;
+    gap: 32px;
+}
+
+.wg-hotel-link {
+    margin-right: auto;
+    text-align: left;
+    margin-top: 28px;
+    font-size: 18px;
+    color: #9fe870;
+}
+
+.wg-hotel-header {
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
+    gap: 32px;
+    @media (max-width: 1158px) {
+        flex-direction: column;
+        gap: 16px;
+        width: calc(50% - 50px);
+    }
+
+    @media (max-width: 835px) {
+        width: 90%;
+    }
+}
+
+.wg-carousel-root {
+    min-width: 60%;
+}
+
+.wg-carousel-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 550px;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.wg-hotel-data {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    gap: 6px;
+    @media (max-width: 1158px) {
+        flex-direction: row;
+    }
+    @media (max-width: 760px) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.wg-hotel-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+
+.wg-hotel-rating-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    @media (max-width: 835px) {
+        gap: 0px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.wg-hotel-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.wg-hotel-mapbox {
+    max-width: fit-content;
+}
+
+.wg-more-hotels {
+    font-size: 36px;
+    margin-top: 36px;
+    text-align: left;
+    width: 100%;
+    @media (max-width: 835px) {
+        font-size: 30px;
+    }
+}
+
+.wg-hotel-cardslist {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    -ms-overflow-style: 'none';
+    scrollbar-width: 'none';
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    @media (max-width: 835px) {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+.wg-hotelList-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.wg-hotelList-title {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.wg-hotelList-filter {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #9fe870;
+    color: #9fe870;
+    &:hover {
+        background-color: #9fe870;
+        border: 1px solid #163300 !important;
+        color: #163300;
+    }
+}
+
+.wg-hotelList-cardslist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+}
+
+.wg-hotelList-pagination {
+    display: flex;
+    margin: 0 auto;
+    max-width: 700px;
+    border: 1px solid #9fe870;
+    border-radius: 16px;
+    padding: 4px;
+}
+
+.wg-hotelList-dialog {
+    border: 2px solid #9fe870;
+    border-radius: 16px;
+}
+
+.wg-hotelList-closeDialogIcon {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.wg-hotelList-dialogBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #163300;
+    width: 300px;
+    height: 500px;
+    @media (max-width: 350px) {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+.wg-hotelList-cityForm {
+    width: 80%;
+}
+
+.wg-hotelList-cityForm-inputField {
+    background-color: #9fe870;
+    border-radius: 10px;
+    fieldset {
+        border: 1px solid #9fe870 !important;
+        border-radius: 10px;
+    }
+    input {
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+    }
+}
+
+.wg-hotelList-cityForm-label {
+    font-size: 16px;
+    color: #163300 !important;
+    font-weight: bold;
+    background-color: #9fe870 !important;
+    border-radius: 12px;
+    padding: 0 8px;
+}
+
+.wg-hotelList-cityForm-menuItem {
+    background-color: #9fe870;
+}
+
+.wg-hotelList-cityForm-submitForm {
+    border: 1px solid #9fe870;
+    color: #9fe870;
+    &:hover {
+        background-color: #9fe870;
+        border: 1px solid #163300 !important;
+        color: #163300;
+    }
+}
