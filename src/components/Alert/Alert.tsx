@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Alert } from '@mui/material';
 import classes from './Alert.module.scss';
 
@@ -11,7 +11,6 @@ type AlertProps = {
 };
 
 const AlertComponent = React.forwardRef<HTMLDivElement, AlertProps>(({ message, variant: type, onClose }, ref) => {
-    const [alertMessage] = useState(message);
 
     return (
         <Alert
@@ -24,7 +23,7 @@ const AlertComponent = React.forwardRef<HTMLDivElement, AlertProps>(({ message, 
                 ${classes[`wg-Alert-${type}`]}
             `}
         >
-            {alertMessage}
+            {message}
         </Alert>
     );
 });
