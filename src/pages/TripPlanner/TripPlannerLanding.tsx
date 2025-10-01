@@ -3,7 +3,7 @@ import { Box, Typography, Button } from '@mui/material';
 import { useRouter } from 'next/router';
 import classes from './TripPlanner.module.scss';
 import { useAppDispatch } from '@/redux/store';
-import { setInitialState } from '@/redux/features/trip-planner/trip-planner-slice';
+import { setInitialState } from '@/redux/features/trips/trips-slice';
 
 const TripPlannerLanding: React.FC = () => {
     const router = useRouter();

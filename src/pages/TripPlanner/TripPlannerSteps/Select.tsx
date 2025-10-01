@@ -28,8 +28,8 @@ import Tooltip from '@mui/material/Tooltip';
 import { ArrowDropDownCircleOutlined } from '@mui/icons-material';
 import { getFilteredTouristPlaces } from '@/redux/features/tourist-place/tourist-place-queries';
 import { getImageFromCloudinary } from '@/shared/utility';
-import { planTouristTrip } from '@/redux/features/trip-planner/trip-planner-queries';
-import { updateHotelOptions, updateTripDetails } from '@/redux/features/trip-planner/trip-planner-slice';
+import { planTouristTrip } from '@/redux/features/trips/trips-queries';
+import { updateHotelOptions, updateTripDetails } from '@/redux/features/trips/trips-slice';
 
 type SelectProps = {
     handleNext: () => void;
@@ -74,7 +74,7 @@ const TripPlannerStepSelect = React.forwardRef<HTMLDivElement, SelectProps>(({ h
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const [totalTouristDestinations, setTotalTouristDestinations] = useState<TouristPlaceList>([]);
-    const { tripDetails } = store.getState().tripPlanner.value;
+    const { tripDetails } = store.getState().trips.value;
     const [tripData, setTripData] = useState<TripSegment[]>(
         tripDetails?.length > 0
             ? tripDetails

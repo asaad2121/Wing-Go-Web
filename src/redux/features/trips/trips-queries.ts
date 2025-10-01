@@ -9,7 +9,7 @@ export type TripSegment = {
 };
 
 export const planTouristTrip = async ({ tripData }: { tripData: TripSegment[] }) => {
-    return await apiQuery(`${process.env.REACT_APP_API}/trip-planner/planTouristTrip`, { tripData });
+    return await apiQuery(`${process.env.REACT_APP_API}/trip/planTouristTrip`, { tripData });
 };
 
 export const tripHotelsSelect = async ({
@@ -21,7 +21,7 @@ export const tripHotelsSelect = async ({
     tripData: TripSegment[];
     selectedHotels: number[];
 }) => {
-    return await apiQuery(`${process.env.REACT_APP_API}/trip-planner/tripHotelsSelect`, {
+    return await apiQuery(`${process.env.REACT_APP_API}/trip/tripHotelsSelect`, {
         userId,
         tripData,
         selectedHotels,

@@ -6,7 +6,7 @@ import { getImageFromCloudinary } from '@/shared/utility';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { snackbar } from '@/components/Snackbar/Snackbar';
-import { tripHotelsSelect } from '@/redux/features/trip-planner/trip-planner-queries';
+import { tripHotelsSelect } from '@/redux/features/trips/trips-queries';
 
 type Review = {
     handleBack: () => void;
@@ -16,7 +16,7 @@ type Review = {
 const TripPlannerStepReview = React.forwardRef<HTMLDivElement, Review>(({ handleBack, handleNext }, ref) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const { tripDetails, hotelOptions } = store.getState().tripPlanner.value;
+    const { tripDetails, hotelOptions } = store.getState().trips.value;
     const { id } = store.getState().auth.value;
     const [selectedHotels, setSelectedHotels] = useState<(number | null)[]>(tripDetails.map(() => null));
 

@@ -53,7 +53,7 @@ const initialState: InitialState = {
     },
 };
 
-export const tripPlannerSlice = createSlice({
+export const tripsSlice = createSlice({
     name: 'tripPlanner',
     initialState,
     reducers: {
@@ -70,5 +70,5 @@ export const tripPlannerSlice = createSlice({
     },
 });
 
-export const { updateTripDetails, updateHotelOptions, updateHotelDetails, setInitialState } = tripPlannerSlice.actions;
-export default tripPlannerSlice.reducer;
+export const { updateTripDetails, updateHotelOptions, updateHotelDetails, setInitialState } = tripsSlice.actions;
+export default tripsSlice.reducer;
