@@ -73,7 +73,7 @@ const Login: React.FC<LoginProps> = ({ isMobileServer }) => {
             snackbar.error(error, 5000);
             return;
         }
-        const userData = { user_email: data.email, first_name: data.firstName, last_name: data.lastName };
+        const userData = { user_email: data.email, first_name: data.firstName, last_name: data.lastName, id: data.id };
         dispatch(updateUser(userData));
         localStorage.setItem('email', formData.user_email);
         router.push('/dashboard');

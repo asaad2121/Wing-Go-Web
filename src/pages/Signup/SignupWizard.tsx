@@ -95,6 +95,7 @@ const Signup: React.FC<SignupProps> = ({ isMobileServer }) => {
             user_email: formData.user_email,
             first_name: formData.first_name,
             last_name: formData.last_name,
+            id: formData.id,
         };
         dispatch(updateUser(userData));
         router.push('/dashboard');

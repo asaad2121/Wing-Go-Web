@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type AuthState = {
     isAuthenticated: boolean;
+    id: number;
     user_email: string;
     user_password: string;
     isTest: boolean;
@@ -25,12 +26,16 @@ export const auth = createSlice({
         logOut: () => {
             return initialState;
         },
-        updateUser: (state, action: PayloadAction<{ user_email: string; first_name: string; last_name: string }>) => {
-            const { user_email, first_name, last_name } = action.payload;
+        updateUser: (
+            state,
+            action: PayloadAction<{ user_email: string; first_name: string; last_name: string; id: number }>
+        ) => {
+            const { user_email, first_name, last_name, id } = action.payload;
             return {
                 value: {
                     ...state.value,
                     isAuthenticated: true,
+                    id,
                     user_email,
                     first_name,
                     last_name,

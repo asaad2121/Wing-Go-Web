@@ -1,0 +1,252 @@
+.wg-tripPlanner-landing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    gap: 24px;
+    text-align: center;
+    padding: 20px;
+    background-color: #163300;
+    color: #9fe870;
+}
+
+.wg-tripPlanner-landing-title {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.wg-tripPlanner-landing-description {
+    max-width: 600px;
+    font-size: 24px;
+    line-height: 1.6;
+}
+
+.wg-tripPlanner-landing-button {
+    background-color: #9fe870 !important;
+    color: #163300 !important;
+    font-size: 18px;
+    margin-top: 28px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    &:hover {
+        background-color: #8ad35e !important;
+    }
+}
+
+.wg-tripPlanner-wizard-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 64px 30px;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #163300;
+    color: #9fe870;
+    gap: 32px;
+}
+
+.wg-tripPlanner-wizard-stepper {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: 60px;
+    margin: 32px auto;
+
+    @media (max-width: 1158px) {
+        width: 80%;
+    }
+
+    @media (max-width: 425px) {
+        margin: 16px 0;
+        width: 100%;
+    }
+
+    :global(.MuiStepLabel-label) {
+        color: #9fe870;
+    }
+
+    :global(.MuiStepIcon-root) {
+        color: #9fe870;
+    }
+
+    :global(.MuiStepIcon-text) {
+        fill: #163300;
+        font-size: 16px;
+    }
+}
+
+.wg-tripPlanner-wizard-stepContent {
+    width: 100%;
+}
+
+.wg-tripPlanner-step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.wg-tripPlanner-step-trip-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.wg-tripPlanner-step-form-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #9fe870;
+    border-radius: 8px;
+    gap: 20px;
+    padding: 18px;
+}
+
+.wg-tripPlanner-step-cityForm {
+    width: 80%;
+}
+
+.wg-tripPlanner-step-cityForm-inputField {
+    background-color: #9fe870;
+    border-radius: 10px;
+    fieldset {
+        border: 1px solid #9fe870 !important;
+        border-radius: 10px;
+    }
+    input {
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+    }
+}
+
+.wg-tripPlanner-step-cityForm-label {
+    font-size: 16px;
+    color: #163300 !important;
+    font-weight: bold;
+    background-color: #9fe870 !important;
+    border-radius: 12px;
+    padding: 0 8px;
+}
+
+.wg-tripPlanner-step-cityForm-menuItem {
+    background-color: #9fe870;
+}
+
+.wg-tripPlanner-step-cityForm-submitForm {
+    border: 1px solid #9fe870;
+    color: #9fe870;
+    &:hover {
+        background-color: #9fe870;
+        border: 1px solid #163300 !important;
+        color: #163300;
+    }
+}
+
+.wg-tripPlanner-step-accordion {
+    color: #163300;
+    background-color: #9fe870;
+    border-radius: 12px !important;
+}
+
+.wg-tripPlanner-step-accordion-summary {
+    border: 1px solid #163300;
+    border-radius: 12px !important;
+}
+
+.wg-tripPlanner-step-accordion-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.wg-tripPlanner-step-accordion-touristPlace {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 4px 10px;
+    &:not(:last-child) {
+        border-bottom: 1px solid #163300;
+    }
+}
+
+.wg-tripPlanner-step-accordion-touristPlace-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+}
+
+.wg-tripPlanner-step-accordion-touristPlace-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wg-tripPlanner-step-button {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #9fe870;
+    color: #9fe870;
+    &:hover {
+        background-color: #9fe870;
+        border: 1px solid #163300 !important;
+        color: #163300;
+    }
+}
+
+.wg-tripPlanner-hotels-select {
+    background-color: #9fe870;
+    border: 1px solid #163300;
+    border-radius: 10px;
+    fieldset {
+        border: 1px solid #9fe870 !important;
+        border-radius: 10px;
+    }
+    input {
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+    }
+}
+
+.wg-tripPlanner-hotels-box {
+    color: #163300;
+    background-color: #9fe870;
+    border-radius: 12px !important;
+    padding: 20px;
+}
+
+.wg-tripPlanner-hotels-MenuItem {
+    color: #163300;
+    background-color: #9fe870;
+}
+
+.wg-tripPlanner-hotels-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.wg-tripPlanner-hotels-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.wg-tripPlanner-hotels-rating {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}

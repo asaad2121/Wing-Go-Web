@@ -159,7 +159,7 @@ const DashboardWizard: React.FC = () => {
                         variant="outlined"
                         type="submit"
                         className={classes['wg-dashboard-filter']}
-                        onClick={() => console.log()}
+                        onClick={() => router.push(`/trip-planner`)}
                     >
                         Plan a trip!
                     </Button>

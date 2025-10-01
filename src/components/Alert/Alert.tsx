@@ -11,7 +11,6 @@ type AlertProps = {
 };
 
 const AlertComponent = React.forwardRef<HTMLDivElement, AlertProps>(({ message, variant: type, onClose }, ref) => {
-
     return (
         <Alert
             ref={ref}
