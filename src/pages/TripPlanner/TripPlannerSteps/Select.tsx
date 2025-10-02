@@ -139,7 +139,7 @@ const TripPlannerStepSelect = React.forwardRef<HTMLDivElement, SelectProps>(({ h
     };
 
     const addNewCity = () => {
-        if (tripData?.length > 9) {
+        if (tripData?.length > 4) {
             snackbar.error('Maximum city limit reached', 5000);
             return;
         }
@@ -271,8 +271,9 @@ const TripPlannerStepSelect = React.forwardRef<HTMLDivElement, SelectProps>(({ h
                                 type="number"
                                 value={segment.budget || ''}
                                 onChange={(e) => {
-                                    const updated = [...tripData];
-                                    updated[index].budget = Number(e.target.value);
+                                    const updated = tripData.map((item, i) =>
+                                        i === index ? { ...item, budget: Number(e.target.value) } : item
+                                    );
                                     setTripData(updated);
                                 }}
                                 placeholder="0"

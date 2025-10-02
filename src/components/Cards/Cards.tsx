@@ -16,12 +16,17 @@ type CardsProps = {
     onClick?: () => void;
     isTouristPlace?: boolean | false;
     description?: string;
+    titleLimit?: number;
+    hideRatings?: boolean;
 };
 
 const CardsComponent = React.forwardRef<HTMLDivElement, CardsProps>(
-    ({ imageUrl, title, rating, address, cost, onClick, isTouristPlace, description }, ref) => {
+    (
+        { imageUrl, title, rating, address, cost, onClick, isTouristPlace, description, hideRatings, titleLimit },
+        ref
+    ) => {
         const isTablet = useMediaQuery('(max-width:1158px) and (min-width:775px)');
-        const [titleText] = useState(limitedCharString(title || '', 19));
+        const [titleText] = useState(limitedCharString(title || '', titleLimit || 19));
         const [addressText, setAddressText] = useState(address || '');
 
         useEffect(() => {
@@ -49,7 +54,7 @@ const CardsComponent = React.forwardRef<HTMLDivElement, CardsProps>(
                             <Typography variant="h5" className={classes['wg-Cards-title']}>
                                 {titleText}
                             </Typography>
-                            {!isTouristPlace && (
+                            {!isTouristPlace && !hideRatings && (
                                 <Rating
                                     name="rating"
                                     value={parseFloat(rating?.toString() || '0')}
@@ -63,7 +68,7 @@ const CardsComponent = React.forwardRef<HTMLDivElement, CardsProps>(
                             {addressText}
                         </Typography>
                     </div>
-                    {!isTouristPlace && (
+                    {!isTouristPlace && !hideRatings && (
                         <div className={classes['wg-Cards-bottomContent']}>
                             <Typography className={classes['wg-Cards-rating']}>{rating}</Typography>
                             <Typography className={classes['wg-Cards-rating-5']}>/5</Typography>

@@ -28,6 +28,7 @@ function NavBar() {
 
     const handleRedirect = (page: string) => {
         router.push(page);
+        handleClose();
     };
 
     const handleLogout = () => {
@@ -84,7 +85,7 @@ function NavBar() {
                                     }}
                                 >
                                     <MenuItem onClick={() => handleRedirect('/my-account')}>My account</MenuItem>
-                                    <MenuItem onClick={() => handleRedirect('/settings')}>Settings</MenuItem>
+                                    <MenuItem onClick={() => handleRedirect('/my-trips')}>My trips</MenuItem>
                                     <MenuItem onClick={handleLogout}>Logout</MenuItem>
                                 </Menu>
                             </div>
