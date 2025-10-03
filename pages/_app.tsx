@@ -1,25 +1,35 @@
+// pages/_app.tsx
 import { AppProps } from 'next/app';
+import { CacheProvider, EmotionCache } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
-import { store } from '@/redux/store';
+import { ThemeProvider } from '@mui/material/styles';
 import { Provider } from 'react-redux';
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink } from '@apollo/client';
-import { ThemeProvider } from '@mui/material/styles';
-import theme from '../src/styles/theme';
-import '../src/styles/global.css';
+import { useMemo } from 'react';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+
+import theme from '@/styles/theme';
+import createEmotionCache from '@/styles/createEmotionCache';
+import { store } from '@/redux/store';
 import SnackBar from '@/components/Snackbar/Snackbar';
 import Navbar from '@/components/Navbar/Navbar';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
 import { getPageTitleFromPath } from '@/shared/utility';
-import { useMemo } from 'react';
+import '../src/styles/global.css';
 
-function MyApp({ Component, pageProps }: AppProps) {
+// Create a client-side Emotion cache
+const clientSideEmotionCache = createEmotionCache();
+
+interface MyAppProps extends AppProps {
+    emotionCache?: EmotionCache;
+}
+
+function MyApp({ Component, pageProps, emotionCache = clientSideEmotionCache }: MyAppProps) {
     const router = useRouter();
     const dynamicTitle = `${getPageTitleFromPath(router.pathname)} | WingGo`;
 
-    // Create Apollo Client only on the client side
+    // Apollo Client
     const client = useMemo(() => {
-        if (typeof window === 'undefined') return null; // SSR: skip
         return new ApolloClient({
             link: new HttpLink({
                 uri: process.env.NEXT_PUBLIC_GRAPHQL_URI || 'http://localhost:8000/graphql',
@@ -29,25 +39,21 @@ function MyApp({ Component, pageProps }: AppProps) {
     }, []);
 
     return (
-        <>
+        <CacheProvider value={emotionCache}>
             <Head>
                 <title>{dynamicTitle}</title>
             </Head>
             <ThemeProvider theme={theme}>
                 <Provider store={store}>
                     <CssBaseline />
-                    {client ? (
-                        <ApolloProvider client={client}>
-                            <Navbar />
-                            <Component {...pageProps} />
-                        </ApolloProvider>
-                    ) : (
+                    <ApolloProvider client={client}>
+                        <Navbar />
                         <Component {...pageProps} />
-                    )}
+                    </ApolloProvider>
                 </Provider>
                 <SnackBar />
             </ThemeProvider>
-        </>
+        </CacheProvider>
     );
 }
 
