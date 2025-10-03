@@ -111,9 +111,9 @@ const SingleTripPage: React.FC = () => {
                         All Tourist Places in this Trip:
                     </Typography>
                     <Box className={classes['wg-userTrips-touristPlaces-box']}>
-                        {trip.touristPlaces.map((tp) => (
+                        {trip.touristPlaces.map((tp, index) => (
                             <Box
-                                key={tp.id}
+                                key={tp.id || `${tp.name}-${index}`}
                                 className={classes['wg-userTrips-touristPlaces-item']}
                                 onClick={() => router.push(`/tourist-destinations/${tp.id}`)}
                             >

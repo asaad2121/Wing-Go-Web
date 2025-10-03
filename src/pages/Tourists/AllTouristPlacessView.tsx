@@ -146,9 +146,9 @@ const AllTouristPlacessView = () => {
                     </Button>
                 </Box>
                 <Box className={classes['wg-touristPlaceList-cardslist']}>
-                    {touristPlaces.map((tp) => (
+                    {touristPlaces.map((tp, index) => (
                         <CardsComponent
-                            key={tp.id}
+                            key={tp.id || `${tp.name}-${index}`}
                             title={tp.name}
                             address={tp.address}
                             description={tp.description}
@@ -213,6 +213,7 @@ const AllTouristPlacessView = () => {
                                 {city.map((value) => (
                                     <MenuItem
                                         value={value}
+                                        key={value.id}
                                         className={classes['wg-touristPlaceList-cityForm-menuItem']}
                                     >
                                         {value.name}

@@ -106,7 +106,7 @@ const AllHotelsView = () => {
 
     useEffect(() => {
         fetchHotels();
-    }, []);
+    }, [fetchHotels]);
 
     const handleDialog = () => {
         setOpenDialog(!openDialog);
@@ -189,9 +189,9 @@ const AllHotelsView = () => {
                     </Button>
                 </Box>
                 <Box className={classes['wg-hotelList-cardslist']}>
-                    {hotels.map((tp) => (
+                    {hotels.filter(Boolean).map((tp, index) => (
                         <CardsComponent
-                            key={tp.id}
+                            key={tp.id || `${tp.name}-${index}`}
                             title={tp.name}
                             address={tp.address}
                             cost={tp.pricePerNight}
@@ -253,7 +253,11 @@ const AllHotelsView = () => {
                                 MenuProps={MenuProps}
                             >
                                 {city.map((value) => (
-                                    <MenuItem value={value} className={classes['wg-hotelList-cityForm-menuItem']}>
+                                    <MenuItem
+                                        key={value.id}
+                                        value={value}
+                                        className={classes['wg-hotelList-cityForm-menuItem']}
+                                    >
                                         {value.name}
                                     </MenuItem>
                                 ))}

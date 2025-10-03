@@ -163,4 +163,5 @@ const TripPlannerStepReview = React.forwardRef<HTMLDivElement, Review>(({ handle
     );
 });
 
+TripPlannerStepReview.displayName = 'TripPlannerStepReview';
 export default TripPlannerStepReview;

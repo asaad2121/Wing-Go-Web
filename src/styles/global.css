@@ -1,4 +1,7 @@
 /* src/styles/globals.css */
+html {
+    font-family: 'Afacad Flux', sans-serif !important;
+}
 
 html,
 body {

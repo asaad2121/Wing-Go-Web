@@ -20,6 +20,17 @@ const AccountDetails: React.FC = () => {
     });
 
     useEffect(() => {
+        const getInitialData = async () => {
+            const { success, data, error } = await getUserInfo();
+            if (!success || error) {
+                snackbar.error(error, 5000);
+                setIsLoading(false);
+                router.push('/dashboard');
+                return;
+            }
+            setUserInfo({ ...userInfo, ...data });
+            setIsLoading(false);
+        };
         getInitialData();
     }, []);
 
@@ -77,18 +88,6 @@ const AccountDetails: React.FC = () => {
             disabled: !editDetails,
         },
     ];
-
-    const getInitialData = async () => {
-        const { success, data, error } = await getUserInfo();
-        if (!success || error) {
-            snackbar.error(error, 5000);
-            setIsLoading(false);
-            router.push('/dashboard');
-            return;
-        }
-        setUserInfo({ ...userInfo, ...data });
-        setIsLoading(false);
-    };
 
     const submitData = async (formData: any, _: any) => {
         const mergedData = {

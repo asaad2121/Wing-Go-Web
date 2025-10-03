@@ -111,12 +111,12 @@ const DashboardWizard: React.FC = () => {
         getHotelCardsInfo();
         fetchTouristPlacesForTopCities();
         fetchHotelsForTopCities();
-        const isAllCityDataEmpty = (cityReduxStore.allCity?.length ?? 0) === 0;
-        const isTopCityDataEmpty = (cityReduxStore.topCity?.length ?? 0) === 0;
+        const isAllCityDataEmpty = (cityReduxStore?.allCity?.length ?? 0) === 0;
+        const isTopCityDataEmpty = (cityReduxStore?.topCity?.length ?? 0) === 0;
         if (isAllCityDataEmpty || isTopCityDataEmpty) {
             fetchCityData(isAllCityDataEmpty, isTopCityDataEmpty);
         }
-    }, []);
+    }, [dispatch, cityReduxStore.allCity?.length, cityReduxStore.topCity?.length]);
 
     return (
         <>
@@ -200,9 +200,9 @@ const DashboardWizard: React.FC = () => {
                                     <Box mb={4}>
                                         <Typography variant="h4">Tourist places in {cityName}</Typography>
                                         <Box className={classes['wg-dashboard-cardslist']}>
-                                            {touristPlaces.map((tp) => (
+                                            {touristPlaces.map((tp, index) => (
                                                 <CardsComponent
-                                                    key={tp.id}
+                                                    key={tp.id || `${tp.name}-${index}`}
                                                     title={tp.name}
                                                     address={tp.address}
                                                     rating={tp.rating}

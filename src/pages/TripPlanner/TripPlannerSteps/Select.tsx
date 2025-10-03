@@ -346,4 +346,5 @@ const TripPlannerStepSelect = React.forwardRef<HTMLDivElement, SelectProps>(({ h
     );
 });
 
+TripPlannerStepSelect.displayName = 'TripPlannerStepSelect';
 export default TripPlannerStepSelect;

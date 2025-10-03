@@ -33,7 +33,7 @@ const CardsComponent = React.forwardRef<HTMLDivElement, CardsProps>(
             if (isTouristPlace) return;
             const limit = isTablet ? 48 : 60;
             setAddressText(limitedCharString(address || '', limit));
-        }, [address, isTablet]);
+        }, [address, isTablet, isTouristPlace]);
 
         const getRatingValue = (rating: number) => {
             if (rating > 4) return 'Excellent';
@@ -99,4 +99,5 @@ const CardsComponent = React.forwardRef<HTMLDivElement, CardsProps>(
     }
 );
 
+CardsComponent.displayName = 'CardsComponent';
 export default CardsComponent;

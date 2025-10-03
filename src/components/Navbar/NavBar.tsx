@@ -2,12 +2,12 @@ import React, { useState, MouseEvent, useEffect } from 'react';
 import { Adb as AdbIcon, AccountCircle, Menu as MenuIcon } from '@mui/icons-material';
 import { Button, Menu, MenuItem, IconButton, Typography, Toolbar, Box, AppBar } from '@mui/material';
 import { useRouter } from 'next/router';
-import classes from './NavBar.module.scss';
+import classes from './Navbar.module.scss';
 import { useAppDispatch, useStoreSelector } from '@/redux/store';
 import { logOut } from '@/redux/features/auth/auth-slice';
 import { snackbar } from '../Snackbar/Snackbar';
 
-function NavBar() {
+function Navbar() {
     const { isAuthenticated } = useStoreSelector((state) => state.auth.value);
     const dispatch = useAppDispatch();
     const [auth, setAuth] = useState(false);
@@ -106,4 +106,4 @@ function NavBar() {
     );
 }
 
-export default NavBar;
+export default Navbar;

@@ -27,4 +27,6 @@ const AlertComponent = React.forwardRef<HTMLDivElement, AlertProps>(({ message, 
     );
 });
 
+AlertComponent.displayName = 'AlertComponent';
+
 export default AlertComponent;

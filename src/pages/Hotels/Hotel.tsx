@@ -11,6 +11,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import CardsComponent from '@/components/Cards/Cards';
 import { useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import Link from 'next/link';
 
 interface Hotel {
     id: number;
@@ -102,9 +103,9 @@ const HotelView: React.FC = () => {
 
     return (
         <Box className={classes['wg-hotel-container']}>
-            <a href="/hotels" className={classes['wg-hotel-link']}>
+            <Link href="/hotels" className={classes['wg-hotel-link']}>
                 {'< Go back to Hotels'}
-            </a>
+            </Link>
             <Box className={classes['wg-hotel-header']}>
                 <div className={classes['wg-carousel-root']}>
                     <Carousel animation="slide" navButtonsAlwaysVisible indicators autoPlay={true} interval={4000}>

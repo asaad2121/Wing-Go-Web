@@ -11,6 +11,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import CardsComponent from '@/components/Cards/Cards';
 import { useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import Link from 'next/link';
 
 interface TouristPlace {
     id: number;
@@ -102,9 +103,9 @@ const TouristPlaceView: React.FC = () => {
 
     return (
         <Box className={classes['wg-touristPlace-container']}>
-            <a href="/tourist-destinations" className={classes['wg-touristPlace-link']}>
+            <Link href="/tourist-destinations" className={classes['wg-touristPlace-link']}>
                 {'< Go back to Tourist Destinations'}
-            </a>
+            </Link>
             <Box className={classes['wg-touristPlace-header']}>
                 <div className={classes['wg-carousel-root']}>
                     <Carousel animation="slide" navButtonsAlwaysVisible indicators autoPlay={true} interval={4000}>
