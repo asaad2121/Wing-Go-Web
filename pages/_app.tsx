@@ -7,7 +7,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from '../src/styles/theme';
 import '../src/styles/global.css';
 import SnackBar from '@/components/Snackbar/Snackbar';
-import NavBar from '@/components/Navbar/Navbar';
+import Navbar from '@/components/Navbar/Navbar';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { getPageTitleFromPath } from '@/shared/utility';
@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     <CssBaseline />
                     {client ? (
                         <ApolloProvider client={client}>
-                            <NavBar />
+                            <Navbar />
                             <Component {...pageProps} />
                         </ApolloProvider>
                     ) : (
