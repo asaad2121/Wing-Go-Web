@@ -106,7 +106,7 @@ const AllHotelsView = () => {
 
     useEffect(() => {
         fetchHotels();
-    }, [fetchHotels]);
+    }, []);
 
     const handleDialog = () => {
         setOpenDialog(!openDialog);
