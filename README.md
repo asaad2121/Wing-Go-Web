@@ -2,6 +2,8 @@
 
 Wing-Go is a modern **Next.js 13** project for planning personalized trips with hotel and tourist destination selection. It uses **React**, **Redux Toolkit**, **Material UI (MUI)**, and integrates with a Node.js backend for trip management.
 
+Preferred Node Version: v20.18.3
+
 ## Features
 
 -   Dynamic trip planning by city and tourist destinations
